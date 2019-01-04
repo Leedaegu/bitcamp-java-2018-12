@@ -3,18 +3,41 @@ package bitcamp.lms;
 public class App {
   
     public static void main(String[] args) {
-        System.out.println("번호: " + 1);
-        System.out.print("수업명:");//ln이 줄바꿈인데 print는 줄바꿈없이실행
-        System.out.println(" 자바 프로젝트 실습");//println은 출력후 줄바꿈실행
-        System.out.print("수업명:");
-        System.out.print(" 자바 프로젝트 실습\n");//문자열속에
-        System.out.println("수업명: 자바 프로젝트 실습");
-        System.out.println("설명: " + "자바 프로젝트를 통한 자바 언어 활용법 익히기");
-        System.out.println("시작일: " + " 2019-01-02");
-        System.out.println("종료일: 2019-05-28");
-        System.out.println("총수업시간: 1000시간");
-        System.out.println(); //아규먼트 (5)처럼 당연히존재하는값 이없으면 줄바꿈실행
-        System.out.println("일수업시간: 8시간");
-       
+      java.util.Scanner keyboard = new java.util.Scanner(System.in);
+        
+        System.out.print("번호? ");
+        int number = keyboard.nextInt(); 
+        
+        keyboard.nextLine();
+        
+        System.out.print("수업명? ");
+        String classname = keyboard.nextLine();
+        
+        System.out.print("수업내용? ");
+        String classcontents = keyboard.nextLine();
+        
+        System.out.print("시작일? ");
+        String startd = keyboard.nextLine();
+        
+        System.out.print("종료일? " );
+        String finishd = keyboard.nextLine();
+        
+        System.out.print("총수업시간? ");
+        int totalt = keyboard.nextInt();
+        
+        System.out.print("일수업시간? ");
+        int totalh = keyboard.nextInt();
+         /*  
+        System.out.println();
+        System.out.printf("번호: %d\n", number); 
+        System.out.printf("수업명: %s\n", classname);
+        System.out.printf("수업내용: %s\n", classcontents);
+        System.out.printf("기간: %s ~ %s\n", startd, finishd);
+        System.out.printf("총수업시간: %d 시간\n", totalt);
+        System.out.printf("일수업시간: %d 시간", totalh);
+         */
+        System.out.println(" ");
+        System.out.printf("번호: %d\n수업명: %s\n수업내용: %s\n기간: %s ~ %s\n총수업시간: %d시간\n일수업시간: %d시간", 
+            number ,classname ,classcontents ,startd ,finishd ,totalt ,totalh );
     }
 }
