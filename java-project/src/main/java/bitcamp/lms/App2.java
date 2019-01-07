@@ -26,6 +26,8 @@ public class App2 {
         System.out.print("전화? ");
         String tell = keyboard.nextLine();
         
+        
+        
         System.out.println();
         System.out.printf("번호: %d\n", number);
         System.out.printf("이름: %s\n", name);

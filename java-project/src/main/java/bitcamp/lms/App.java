@@ -3,6 +3,9 @@ package bitcamp.lms;
 public class App {
   
     public static void main(String[] args) {
+      //키보드입력 스트림(System.in)을 스캐너 객체에 연결한다.
+      //스트림= 읽고 쓰는도구.
+      //스캐너= 입력 스트림으로 들어온문자열을 줄단위로 잘라주는 역할을수행한다.
       java.util.Scanner keyboard = new java.util.Scanner(System.in);
         
         System.out.print("번호? ");
@@ -27,7 +30,8 @@ public class App {
         
         System.out.print("일수업시간? ");
         int totalh = keyboard.nextInt();
-         /*  
+        keyboard.close();
+        /*  
         System.out.println();
         System.out.printf("번호: %d\n", number); 
         System.out.printf("수업명: %s\n", classname);
