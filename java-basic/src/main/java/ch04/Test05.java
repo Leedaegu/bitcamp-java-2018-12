@@ -13,7 +13,10 @@ public class Test05 {
     int r3 = a++ + a++ * a++;
     System.out.println(r3);
      
-     
+   /* int b = 2;
+      int r4 = b++ + (b++ * b++);
+      System.out.println(r3);
+    */     
     
     
     

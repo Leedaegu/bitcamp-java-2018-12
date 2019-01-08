@@ -1,47 +1,70 @@
 package bitcamp.lms;
 
+import java.sql.Date;
+import java.util.Scanner;
+
 public class App {
-  
-    public static void main(String[] args) {
-      //키보드입력 스트림(System.in)을 스캐너 객체에 연결한다.
-      //스트림= 읽고 쓰는도구.
-      //스캐너= 입력 스트림으로 들어온문자열을 줄단위로 잘라주는 역할을수행한다.
-      java.util.Scanner keyboard = new java.util.Scanner(System.in);
+
+  public static void main(String[] args) {
+
+    Scanner keyboard = new Scanner(System.in);
+
+    int[] number = new int[10];
+    String[] classname = new String[10];
+    String[] classcontents = new String[10];
+    Date[] startd = new Date[10];
+    Date[] finishd = new Date[10];
+    int[] totalh = new int[10];
+    int[] dayh = new int [10];
+
+    int i = 0;
+    int j = 0;
+    okok:
+    while (i < 10){
+      System.out.print("번호? ");
+      number[i] = Integer.parseInt(keyboard.nextLine());
+
+      System.out.print("수업명? ");
+      classname[i] = keyboard.nextLine();
+
+      System.out.print("수업내용? ");
+      classcontents[i] = keyboard.nextLine();
+
+      System.out.print("시작일? ");
+      startd[i] = Date.valueOf(keyboard.nextLine());
+
+      System.out.print("종료일? " );
+      finishd[i] = Date.valueOf(keyboard.nextLine());
+
+      System.out.print("총수업시간? ");
+      totalh[i] = Integer.parseInt(keyboard.nextLine());
+
+      System.out.print("일수업시간? ");
+      dayh[i] = Integer.parseInt(keyboard.nextLine());
+
+      i++;
+
+      System.out.println();
+      System.out.print("계속 입력하시겠습니까? (Y/n) ");
+      String answer = keyboard.nextLine();
+      
+      System.out.println();
+      
+      if (!answer.equals("y") && !answer.equals("Y")) {
+        while (j < i) {
+          System.out.printf("%d , %s, %s ~ %s, %d\n", 
+              number[j], classname[j], startd[j], finishd[j], totalh[j]);
+          j++;
+          keyboard.close();
+          break okok;
+        }
         
-        System.out.print("번호? ");
-        int number = keyboard.nextInt(); 
-        
-        keyboard.nextLine();
-        
-        System.out.print("수업명? ");
-        String classname = keyboard.nextLine();
-        
-        System.out.print("수업내용? ");
-        String classcontents = keyboard.nextLine();
-        
-        System.out.print("시작일? ");
-        String startd = keyboard.nextLine();
-        
-        System.out.print("종료일? " );
-        String finishd = keyboard.nextLine();
-        
-        System.out.print("총수업시간? ");
-        int totalt = keyboard.nextInt();
-        
-        System.out.print("일수업시간? ");
-        int totalh = keyboard.nextInt();
-        keyboard.close();
-        /*  
-        System.out.println();
-        System.out.printf("번호: %d\n", number); 
-        System.out.printf("수업명: %s\n", classname);
-        System.out.printf("수업내용: %s\n", classcontents);
-        System.out.printf("기간: %s ~ %s\n", startd, finishd);
-        System.out.printf("총수업시간: %d 시간\n", totalt);
-        System.out.printf("일수업시간: %d 시간", totalh);
-         */
-        System.out.println(" ");
-        System.out.printf("번호: %d\n수업명: %s\n수업내용: %s\n기간: %s ~ %s\n총수업시간: %d시간\n일수업시간: %d시간", 
-            number ,classname ,classcontents ,startd ,finishd ,totalt ,totalh );
+      }
+      //answer.equalsIgnoreCase("y");
+      //      System.out.println();
+
     }
+  }
 }
+
+
