@@ -4,12 +4,12 @@ package ch06;
 public class Test03 {
   public static void main(String[] args) {
     String s;
-    int i;
+
     
     s = m1();
     System.out.println(s);
     
-    i = m2();
+    int i = m2();    
     System.out.println(i);
     m1();
     m2();

@@ -5,11 +5,14 @@ public class Test07 {
 
   public static void main(String[] args) {
 
-    plus1();
-    plus1(10);
-    plus1(10, 20);
+    int result = plus1();
+    System.out.println(result);
+    result = plus1(10);
+    System.out.println(result);
+    result = plus1(10, 20);
+    System.out.println(result);
     
-    plus2(new int[] {});
+    plus2(new int[] {});    
     plus2(new int[] {10}); 
     plus2(new int[] {10, 20});
   }

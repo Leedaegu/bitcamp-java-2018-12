@@ -27,6 +27,7 @@ public class Test06 {
     int[] arr2 = new int[] {10, 20, 30};
     result = plus(arr2);
     System.out.println(result);
+    
 
     int[] arr3 = {10, 20, 30, 40};
     result = plus(arr3);

@@ -4,7 +4,8 @@ package ch06;
 public class Test05 {
 
   public static void main(String[] args) {
-    int result = plus(2, 3);
+    int result = 1; 
+    result = plus(result, 3);
     result = plus(result, 4);
     result = plus(result, 5);
     System.out.println(result);
@@ -16,7 +17,7 @@ public class Test05 {
   }
   
   static int plus(int a, int b) {
-    return a + b;
+     return a + b;
   }
 }
 

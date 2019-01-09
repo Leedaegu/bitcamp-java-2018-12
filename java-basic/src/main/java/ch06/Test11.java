@@ -6,7 +6,7 @@ public class Test11 {
 
   public static void main(String[] args) {
     int value = 100;
-    m1(value);
+    value = m1(value);
     System.out.println(value);
     
     int[] arr = new int[] {100, 200, 300};
@@ -15,9 +15,12 @@ public class Test11 {
     System.out.println(arr[1]);
   }
   
-  static void m1(int value) {
+  static int m1(int value) {
     value *= 2;
+    System.out.println(value);
+    return value; 
   }
+  
   static void m2(int[] arr) {
    arr[1] = 111;
   }

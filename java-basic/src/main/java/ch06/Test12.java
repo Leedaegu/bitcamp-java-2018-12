@@ -15,14 +15,14 @@ public class Test12 {
     result2 = sum1(result2, 5);
     System.out.println(result2);
     
-    System.out.println(sum2(10000));
+    System.out.println(sum2(5));
 
   }
 
   static int sum1(int a, int b) {
     return a + b;
   }
-  static long sum2(long n) {
+  static int sum2(int n) {
     if (n == 1)
       return 1;
 
