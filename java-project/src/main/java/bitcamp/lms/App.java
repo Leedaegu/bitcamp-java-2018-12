@@ -18,8 +18,7 @@ public class App {
     int[] dayh = new int [10];
 
     int i = 0;
-    int j = 0;
-    okok:
+
     while (i < 10){
       System.out.print("번호? ");
       number[i] = Integer.parseInt(keyboard.nextLine());
@@ -47,24 +46,25 @@ public class App {
       System.out.println();
       System.out.print("계속 입력하시겠습니까? (Y/n) ");
       String answer = keyboard.nextLine();
-      
       System.out.println();
-      
-      if (!answer.equals("y") && !answer.equals("Y")) {
-        while (j < i) {
-          System.out.printf("%d , %s, %s ~ %s, %d\n", 
-              number[j], classname[j], startd[j], finishd[j], totalh[j]);
-          j++;
-          keyboard.close();
-          break okok;
-        }
-        
-      }
-      //answer.equalsIgnoreCase("y");
-      //      System.out.println();
+
+      if (!answer.equals("y") && !answer.equals("Y")) 
+        break;
 
     }
+
+    keyboard.close();
+    int j = 0;
+
+    while (j < i) {
+      System.out.printf("%d , %s, %s ~ %s, %d\n", 
+          number[j], classname[j], startd[j], finishd[j], totalh[j]);
+      j++;
+
+
+    }
+
+
+
   }
 }
-
-
