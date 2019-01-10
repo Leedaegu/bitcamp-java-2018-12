@@ -5,7 +5,7 @@ package ch05;
 
 public class Test05 {
   public static void main(String[] args) {
-    String str = "ok";
+    String str = "yes";
     
     
     switch (str) {

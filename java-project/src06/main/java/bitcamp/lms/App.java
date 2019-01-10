@@ -6,39 +6,41 @@ import java.util.Scanner;
 public class App {
 
   public static void main(String[] args) {
-    
-    Scanner keyboard = new Scanner(System.in);
-    
-    int LENGTH = 10;
-    Lesson[] lessons = new Lesson[LENGTH];
 
-  
+    Scanner keyboard = new Scanner(System.in);
+
+    int[] number = new int[10];
+    String[] classname = new String[10];
+    String[] classcontents = new String[10];
+    Date[] startd = new Date[10];
+    Date[] finishd = new Date[10];
+    int[] totalh = new int[10];
+    int[] dayh = new int [10];
+
     int i = 0;
-    while (i < LENGTH){
-      
-      bitcamp.lms.Lesson lesson = new bitcamp.lms.Lesson();
-      
+
+    while (i < 10){
       System.out.print("번호? ");
-      lesson.number = Integer.parseInt(keyboard.nextLine());
+      number[i] = Integer.parseInt(keyboard.nextLine());
 
       System.out.print("수업명? ");
-      lesson.classname = keyboard.nextLine();
+      classname[i] = keyboard.nextLine();
 
       System.out.print("수업내용? ");
-      lesson.classcontents = keyboard.nextLine();
+      classcontents[i] = keyboard.nextLine();
 
       System.out.print("시작일? ");
-      lesson.startd = Date.valueOf(keyboard.nextLine());
+      startd[i] = Date.valueOf(keyboard.nextLine());
 
       System.out.print("종료일? " );
-      lesson.finishd = Date.valueOf(keyboard.nextLine());
+      finishd[i] = Date.valueOf(keyboard.nextLine());
 
       System.out.print("총수업시간? ");
-      lesson.totalh = Integer.parseInt(keyboard.nextLine());
+      totalh[i] = Integer.parseInt(keyboard.nextLine());
 
       System.out.print("일수업시간? ");
-      lesson.dayh = Integer.parseInt(keyboard.nextLine());
-      lessons[i] = lesson;
+      dayh[i] = Integer.parseInt(keyboard.nextLine());
+
       i++;
 
       System.out.println();
@@ -56,7 +58,7 @@ public class App {
 
     while (j < i) {
       System.out.printf("%d , %s, %s ~ %s, %d\n", 
-          lessons[j].number, lessons[j].classname, lessons[j].startd, lessons[j].finishd, lessons[j].totalh);
+          number[j], classname[j], startd[j], finishd[j], totalh[j]);
       j++;
 
 

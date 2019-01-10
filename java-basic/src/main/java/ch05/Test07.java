@@ -17,7 +17,7 @@ public class Test07 {
         System.out.println("이력서");
     }
     
-    int score = 60;
+    int score = 100;
     
     switch (score) {
       case 100:
