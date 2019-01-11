@@ -1,64 +1,70 @@
 package bitcamp.lms;
 
 import java.util.Scanner;
+import java.util.Date;
 
 public class App2 {
-
+  
   public static void main(String[] args) {
-    
-    Scanner keyboard = new Scanner(System.in);
-    
-    int LENGTH = 10;
-    Member[] members = new Member[LENGTH];
 
-    int i = 0;
-    while(i < LENGTH) {
-      
-      bitcamp.lms.Member member = new bitcamp.lms.Member();
-      
+    Scanner keyboard = new Scanner(System.in);
+
+    int[] no = new int[10];
+    String[] name = new String[10];
+    String[] email = new String[10];
+    String[] password = new String[10];
+    String[] photo = new String[10];
+    String[] tell = new String[10];
+    Date[] registeredDate = new Date[10];
+
+    int index = 0;
+    
+    while (index < 10) {
       System.out.print("번호? ");
-      member.number = Integer.parseInt(keyboard.nextLine());
+      no[index] = Integer.parseInt(keyboard.nextLine());
 
       System.out.print("이름? ");
-      member.name = keyboard.nextLine();
+      name[index] = keyboard.nextLine();
 
       System.out.print("이메일? ");
-      member.email = keyboard.nextLine();
+      email[index] = keyboard.nextLine();
 
       System.out.print("암호? ");
-      member.code = keyboard.nextInt();
-      keyboard.nextLine();
+      password[index] = keyboard.nextLine();
 
       System.out.print("사진? ");
-      member.picture = keyboard.nextLine();
+      photo[index] = keyboard.nextLine();
 
       System.out.print("전화? ");
-      member.tell = keyboard.nextLine();
-          
-      members[i] = member;
-        
-      i++;
+      tell[index] = keyboard.nextLine();
 
-      System.out.println();
-      System.out.print("계속 입력하시겠습니까?(Y/n) ");
+      registeredDate[index] = new Date(System.currentTimeMillis());
+
+      index++;
+
+      System.out.print("\n계속 입력하시겠습니까?(Y/n) ");
       String answer = keyboard.nextLine();
-      if (!answer.equals("y") && !answer.equals("Y")) {
-        break;
-      
-      }
-
       System.out.println();
+
+      if(!answer.equalsIgnoreCase("y")) 
+        break;
     }
 
     keyboard.close();
-    System.out.println();
 
-    
-    for (int j = 0; j < i; j++) {
+    int count = 0;
+    while (count < index) {
 
-      System.out.printf("%d, %s, %s, %s" + "2019-01-01\n",
-          members[j].number ,members[j].name ,members[j].email ,members[j].tell);
-    
+
+    System.out.printf("번호: %d\n", no[count]);
+    System.out.printf("이름: %s\n", name[count]);
+    System.out.printf("이메일: %s\n", email[count]);
+    System.out.printf("암호: %s\n", password[count]);
+    System.out.printf("사진: %s\n", photo[count]);
+    System.out.printf("전화: %s\n", tell[count]);
+    System.out.printf("가입일: %s\n", registeredDate[count]);
+    count++;
+
     }
   }
 }
