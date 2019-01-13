@@ -9,17 +9,19 @@ public class App2 {
 
     Scanner keyboard = new Scanner(System.in);
 
-    int[] no = new int[10];
-    String[] name = new String[10];
-    String[] email = new String[10];
-    String[] password = new String[10];
-    String[] photo = new String[10];
-    String[] tell = new String[10];
-    Date[] registeredDate = new Date[10];
+    final int LENGTH = 10;
+    
+    int[] no = new int[LENGTH];
+    String[] name = new String[LENGTH];
+    String[] email = new String[LENGTH];
+    String[] password = new String[LENGTH];
+    String[] photo = new String[LENGTH];
+    String[] tell = new String[LENGTH];
+    Date[] registeredDate = new Date[LENGTH];
 
     int index = 0;
     
-    while (index < 10) {
+    while (index < LENGTH) {
       System.out.print("번호? ");
       no[index] = Integer.parseInt(keyboard.nextLine());
 
