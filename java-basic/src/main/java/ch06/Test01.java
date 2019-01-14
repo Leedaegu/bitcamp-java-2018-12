@@ -1,4 +1,4 @@
-// 메서드 - 정의하고 사용하는 방법
+  // 메서드 - 정의하고 사용하는 방법
 package ch06;
 
 public class Test01 {
