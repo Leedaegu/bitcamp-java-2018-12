@@ -5,37 +5,36 @@ import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
 public class BoardHandler {
-
+  
   static final int LENGTH = 10;
 
-  public static Scanner keyboard;
-  static Board[] boards = new Board[LENGTH];
-  static int boardIdx = 0;
+  public Scanner keyboard;
+  Board[] boards = new Board[LENGTH];
+  int boardIdx = 0;
 
-
-  public static void listboard(BoardHandler that) {
-    for (int j = 0; j < boardIdx; j++) {
+  public static void listBoard() {
+    for (int j = 0; j < this.boardIdx; j++) {
       System.out.printf("%3d, %-20s, %s, %d\n", 
-          boards[j].no, boards[j].contents, boards[j].createdDate, boards[j].viewCount);
+          this.boards[j].no, this.boards[j].contents, this.boards[j].createdDate, this.boards[j].viewCount);
     }
   }
 
-  public static void addboard() {
+  public static void addBoard() {
     Board board = new Board();
-
+    
     System.out.print("번호? ");
-    board.no = Integer.parseInt(keyboard.nextLine());
-
+    board.no = Integer.parseInt(this.keyboard.nextLine());
+    
     System.out.print("내용? ");
-    board.contents = keyboard.nextLine();
-
+    board.contents = this.keyboard.nextLine();
+    
     board.createdDate = new Date(System.currentTimeMillis()); 
-
+    
     board.viewCount = 0;
-
-    boards[boardIdx] = board;
-    boardIdx++;
-
+    
+    this.boards[this.boardIdx] = board;
+    this.boardIdx++;
+    
     System.out.println("저장하였습니다.");
   }
 
