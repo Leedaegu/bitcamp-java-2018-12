@@ -1,70 +1,66 @@
 package com.eomcs.lms;
 
+import java.sql.Date;
 import java.util.Scanner;
-import com.eomcs.lms.handler.BoardHandler;
-import com.eomcs.lms.handler.LessonHandler;
-import com.eomcs.lms.handler.MemberHandler;
 
 public class App {
 
-  static Scanner keyboard = new Scanner(System.in);
-
   public static void main(String[] args) {
-    
-    // 외부로 분리한 클래스에서 사용할 keyboard를 주입한다.
-    LessonHandler.keyboard = keyboard;
-    MemberHandler.keyboard = keyboard;
-    
-    BoardHandler boardHandler1 = new BoardHandler();
-    boardHandler1.keyboard = keyboard;
-    
-    BoardHandler boardHandler2 = new BoardHandler();
-    boardHandler2.keyboard = keyboard;;
 
-    
-    while (true) {
-      String command = prompt();
+    Scanner keyboard = new Scanner(System.in);
+    final int LENGTH = 100;
 
-      if (command.equals("/lesson/add")) {
-        LessonHandler.addLesson();
-        
-      } else if (command.equals("/lesson/list")) {
-        LessonHandler.listLesson();
-      
-      } else if (command.equals("/member/add")) {
-        MemberHandler.addMember();
-        
-      } else if (command.equals("/member/list")) {
-        MemberHandler.listMember();
-        
-      } else if (command.equals("/board/add")) {
-        BoardHandler.addBoard(boardHandler1);
-        
-      } else if (command.equals("/board/list")) {
-        BoardHandler.listBoard(boardHandler1);
-        
-      } else if (command.equals("/board2/add")) {
-        BoardHandler2.addBoard(boardHandler2);
-        
-      } else if (command.equals("/board2/list")) {
-        BoardHandler2.listBoard(boardHandler2);
-        
-      } else if (command.equals("quit")) {
-        System.out.println("안녕!");
+    int[] no = new int[LENGTH];
+    String[] title = new String[LENGTH];
+    String[] contents = new String[LENGTH];
+    Date[] startDate = new Date[LENGTH];
+    Date[] endDate = new Date[LENGTH];
+    int[] totalHours = new int[LENGTH];
+    int[] dayHours = new int[LENGTH];
+
+    int index = 0;
+
+    while (index < LENGTH) {
+      System.out.print("번호? ");
+      no[index] = Integer.parseInt(keyboard.nextLine());
+
+      System.out.print("수업명? ");
+      title[index] = keyboard.nextLine();
+
+      System.out.print("수업내용? ");
+      contents[index] = keyboard.nextLine();
+
+      System.out.print("시작일? ");
+      startDate[index] = Date.valueOf(keyboard.nextLine());
+
+      System.out.print("종료일? ");
+      endDate[index] = Date.valueOf(keyboard.nextLine());
+
+      System.out.print("총수업시간? ");
+      totalHours[index] = Integer.parseInt(keyboard.nextLine());
+
+      System.out.print("일수업시간? ");
+      dayHours[index] = Integer.parseInt(keyboard.nextLine());
+
+      index++;
+
+      System.out.print("\n계속 입력하시겠습니까? ");
+      String answer = keyboard.nextLine().toLowerCase();
+      if (!answer.equals("y") && answer.length() > 0) {
         break;
-        
-      } else {
-        System.out.println("실행할 수 없는 명령입니다.");
       }
-      
-      System.out.println(); // 결과 출력 후 빈 줄 출력
+      System.out.println();
     }
 
     keyboard.close();
-  }
 
-  private static String prompt() {
-    System.out.print("명령> ");
-    return keyboard.nextLine().toLowerCase();
+    System.out.println(); 
+
+    for (int Length = 0; Length < index; Length++) {
+      System.out.printf("%3d, %-15s, %10s ~ %10s, %4d\n", 
+          no[Length], title[Length], startDate[Length], endDate[Length], totalHours[Length]);
+    }
   }
 }
+
+
