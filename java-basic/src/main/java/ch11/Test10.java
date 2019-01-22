@@ -11,7 +11,7 @@ public class Test10{
     
     int i1 = obj1.intValue();
     
-    int i2 = obj1;
+    int i2 = obj1; 
     Integer obj2 = 200;
     
   }

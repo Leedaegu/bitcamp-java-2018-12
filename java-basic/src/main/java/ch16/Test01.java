@@ -7,7 +7,7 @@ import java.util.Date;
 public class Test01 {
   public static void main(String[] args) {
 
-    String obj = (String) echo(new String("Hello"));
+    String obj = (String) echo(new String("Hello")); 
 
     // String obj = echo(new String("Hello")); // 컴파일 오류!
     // Integer obj2 = (Integer) echo(new String("Hello")); // 실행 오류!
