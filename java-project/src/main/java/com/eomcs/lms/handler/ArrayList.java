@@ -1,6 +1,6 @@
 package com.eomcs.lms.handler;
 
-public class ArrayList {
+public class ArrayList<E> {
   static final int LENGTH = 10;   
   Object[] arr;
   int size = 0;
@@ -16,16 +16,17 @@ public class ArrayList {
       arr = new Object[LENGTH];
   }
 
-  public Object[] toArray() {
+  public E[] toArray(E[] a) {
     Object[] list = new Object[size];
     for (int i = 0; i < size; i++) {
-      list[i] = this.arr[i];
+          list[i] = arr[i];
     }
-    return list;
+     a = (E[])list ;
+    return  a;
   }
 
 
-  public void add(Object value) {
+  public void add(E value) {
     if(size == arr.length) {
       int oldSize = arr.length;
       int newSize = oldSize + (oldSize >> 1);
@@ -34,7 +35,7 @@ public class ArrayList {
         temp[i] = this.arr[i];
       }
       arr = temp;
-
-    }
+    } 
+    arr[size++] = value;
   }
 }

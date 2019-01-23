@@ -11,7 +11,7 @@ public class ArrayList<E> {
     list = (E[]) new Object[LENGTH];
   }
 
-  public ArrayList(int a) {
+  public ArrayList(int a) {bject[] li
     if (a > LENGTH)
       list = (E[]) new Object[a];
     else

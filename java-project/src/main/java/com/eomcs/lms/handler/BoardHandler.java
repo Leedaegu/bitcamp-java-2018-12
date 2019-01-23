@@ -6,17 +6,16 @@ import com.eomcs.lms.domain.Board;
 
 public class BoardHandler {
   Scanner keyboard;
-  ArrayList list;
+  ArrayList <Board>list;
 
   public BoardHandler(Scanner keyboard) {
     this.keyboard = keyboard; 
-    this.list = new ArrayList(20);
+    this.list = new ArrayList<>(20);
   }
 
   public void listBoard() {
-    Object[] objs = list.toArray();
-    for(Object obj : objs) {
-      Board board = (Board) obj;
+    Board[] boards = list.toArray(new Board[] {});
+    for(Board board : boards) {
       System.out.printf("%3d, %-20s , %s, %d\n", 
           board.getNo(), board.getContents(),
           board.getCreatedDate(), board.getViewCount());

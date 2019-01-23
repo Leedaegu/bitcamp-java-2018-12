@@ -6,11 +6,11 @@ import com.eomcs.lms.domain.Member;
 
 public class MemberHandler {
   Scanner keyboard;
-  Object list;
+  ArrayList list;
   
   public MemberHandler(Scanner keyboard) {
     this.keyboard = keyboard; 
-    list = new Object();
+    list = new ArrayList(20);
   }
 
   public void listMember() {

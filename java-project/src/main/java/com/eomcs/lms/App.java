@@ -36,7 +36,7 @@ public class App {
         boardHandler1.addBoard();
 
       } else if (command.equals("/board/list")) {
-        boardHandler1.listBoard();
+
 
       } else if (command.equals("/board2/add")) {
         boardHandler2.addBoard();
