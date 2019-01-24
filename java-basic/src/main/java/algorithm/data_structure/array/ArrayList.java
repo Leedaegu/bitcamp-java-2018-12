@@ -1,46 +1,43 @@
 package algorithm.data_structure.array;
 
-import java.util.Arrays;
-
 public class ArrayList {
 
   static final int DEFAULT_SIZE = 5;
+
   Object[] arr;
-  int size = 0; // 현재 배열크기
+  int size;
 
   public ArrayList() {
     this(0);
   }
 
   public ArrayList(int capacity) {
-
     if (capacity > DEFAULT_SIZE)
       arr = new Object[capacity];
-    else
+    else 
       arr = new Object[DEFAULT_SIZE];
   }
 
   public Object[] toArray() {
     Object[] list = new Object[this.size];
-    for (int i = 0; i <this.size; i++) {
+    for (int i = 0; i < this.size; i++) {
       list[i] = this.arr[i];
     }
     return list;
   }
 
   public void add(Object value) {
-
-    if(size == arr.length)
+    if (this.size == arr.length) 
       increase();
-    arr[size++] = value;
+
+    arr[this.size++] = value;
   }
- 
 
   public int insert(int index, Object value) {
     if (index < 0 || index >= size)
       return -1;
 
-    if(this.size == arr.length)
+    if (this.size == arr.length) 
       increase();
 
     for (int i = size - 1; i >= index; i--)
@@ -52,47 +49,54 @@ public class ArrayList {
     return 0;
   }
 
-
-  public Object get (int index) {
+  public Object get(int index) {
     if (index < 0 || index >= size)
       return null;
 
     return this.arr[index];
   }
 
-  public Object set(int index, Object value){
-
+  public Object set(int index, Object value) {
     if (index < 0 || index >= size)
       return null;
 
-    Object y = this.arr[index];
+    Object old = this.arr[index];
     this.arr[index] = value;
-    return y;
+    return old;
   }
 
-  public Object remove(int index){
+  public Object remove(int index) {
     if (index < 0 || index >= size)
       return null;
 
-    Object x = arr[index];
+    Object old = this.arr[index];
 
-    for (int i = index; i < size -1; i++)
-     this.arr[i] = this.arr[i + 1];
-    
+    for (int i = index; i < size - 1; i++) 
+      this.arr[i] = this.arr[i+1];
+
     size--;
-    
-    return x;
+
+    return old;
   }
 
-  public int size(){
+  public int size() {
     return this.size;
   }
 
   private void increase() {
-    arr = Arrays.copyOf(arr, arr.length + (arr.length >> 1));
+    int originSize = arr.length;
+    int newSize = originSize + (originSize >> 1);
+    Object[] temp = new Object[newSize];
+    for (int i = 0; i < this.arr.length; i++) {
+      temp[i] = this.arr[i];
+    }
+    arr = temp;
   }
-
 }
+
+
+
+
 
 
 

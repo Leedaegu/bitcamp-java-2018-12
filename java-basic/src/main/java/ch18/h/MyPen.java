@@ -19,7 +19,19 @@ public class MyPen implements Pen {
   public void write(String text) {
     if (!this.use)
       return;
-    System.out.println("===>" + text);
+    
+    System.out.println("===> " + text);
   }
   
 }
+
+
+
+
+
+
+
+
+
+
+

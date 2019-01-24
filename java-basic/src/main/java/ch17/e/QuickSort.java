@@ -1,9 +1,9 @@
 package ch17.e;
 
-public class QuickSort extends Sorter{
+public class QuickSort extends Sorter {
   
   @Override
-  public void sort (int[] values) {
+  public void sort(int[] values) {
     start(values, 0, values.length - 1);
   }
   

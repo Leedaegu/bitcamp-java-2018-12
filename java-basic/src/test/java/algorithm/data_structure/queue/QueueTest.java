@@ -11,7 +11,7 @@ public class QueueTest {
     q.offer(100);
     q.offer(200);
     q.offer(300);
-
+    
     assertEquals(3, q.size());
   }
 
@@ -21,7 +21,7 @@ public class QueueTest {
     q.offer(100);
     q.offer(200);
     q.offer(300);
-
+    
     assertEquals(100, q.poll());
     assertEquals(2, q.size());
     assertEquals(200, q.poll());
@@ -36,7 +36,7 @@ public class QueueTest {
     Queue q = new Queue();
     q.offer(100);
     q.offer(200);
-    q.offer(300);  
+    q.offer(300);
     
     assertEquals(100, q.poll());
     assertFalse(q.empty());
@@ -46,7 +46,6 @@ public class QueueTest {
     
     assertEquals(300, q.poll());
     assertTrue(q.empty());
-    
   }
 
 }

@@ -1,4 +1,4 @@
-
+// 클래스 필드 
 package ch08;
 
 class My1 {

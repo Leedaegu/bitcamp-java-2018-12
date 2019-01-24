@@ -2,7 +2,7 @@
 package ch18.g;
 
 public interface A {
-  // 인터페이스에 선언되는 모든 필드는 public static final 이다.
+  // 인터페이스에 선언하는 모든 필드는 public static final 이다.
   // 즉 상수이다.
   public static final int V1 = 100;
   

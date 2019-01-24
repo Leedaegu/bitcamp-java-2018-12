@@ -67,6 +67,7 @@ public class Test11 {
     System.out.println(k3.hashCode()); // hash code는 같다. 
     System.out.println(k6.hashCode()); // hash code는 같다.
     System.out.println(k3.equals(k6)); // equals()의 비교 결과도 같다.
+    
     // k3와 k6는 
     // hashCode()의 리턴 값이 같다
     // equals() 비교 결과도 true 이기 때문에 
@@ -77,7 +78,6 @@ public class Test11 {
     Key2 k7 = new Key2("Haha"); 
     System.out.println(map.get(k7));
   }
-
 }
 
 
