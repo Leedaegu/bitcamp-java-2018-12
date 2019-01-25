@@ -7,17 +7,17 @@ import com.eomcs.lms.domain.Board;
 public class BoardHandler {
   
   Scanner keyboard;
-  ArrayList list;
+  ArrayList<Board> list;
   
   public BoardHandler(Scanner keyboard) {
     this.keyboard = keyboard;
-    this.list = new ArrayList(20);
+    this.list = new ArrayList<>();
   }
   
   public void listBoard() {
-    Object[] objs = list.toArray();    
-    for (Object obj : objs) {
-      Board board = (Board) obj; //obj에 들어있는건 Board 주소다.
+    Board[] boards = list.toArray(new Board[0]);    
+    
+    for (Board board : boards) {
       System.out.printf("%3d, %-20s, %s, %d\n", 
           board.getNo(), board.getContents(), 
           board.getCreatedDate(), board.getViewCount());

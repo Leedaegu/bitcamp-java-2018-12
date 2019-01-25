@@ -20,8 +20,7 @@ public class Test08 {
     // int 배열 선언
     int[] values = new int[3];
     // values : 배열의 주소를 담는 변수(레퍼런스)
-    // new int[3] : int 변본 타입(byte, short, int, long, float, double, boolean, char)은
-    //   해당 타입의 메 3개 생성한다. 각 항목에 저장하는 값은 int 값!
+    // new int[3] : int 변수 3개 생성한다. 각 항목에 저장하는 값은 int 값!
     
     // 낱개의 레퍼런스 선언;
     Score s1, s2, s3;

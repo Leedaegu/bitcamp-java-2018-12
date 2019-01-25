@@ -46,7 +46,7 @@ public class LinkedList<E> {
   
   // ArrayList와 달리 해당 인덱스를 찾아 가려면 링크를 따라가야 하기 때문에 
   // 조회 속도가 느리다.
-  public Object get(int index) {
+  public E get(int index) {
     if (index < 0 || index >= size)
       return null;
     

@@ -1,30 +1,21 @@
 package algorithm.data_structure.test;
 
+
 public class LinkedList {
   protected Node head;
   protected Node tail;
   protected int size;
 
   public LinkedList() {
-    head = new Node();
-    tail = head;
-    size = 0;
+ 
   }
 
-
   public int size() {
-    return size;
+    return null;
   }
 
   public void add(Object value) {   
-    tail.value = value;
-
-    Node node = new Node();
-
-    Node cursor = head;
-
-
-    cursor.value = value;
+ 
   }
 
   public Object get(int index) {
@@ -47,7 +38,6 @@ public class LinkedList {
   public Object remove(int index) {
     return null;
   }
-
 }
 
 

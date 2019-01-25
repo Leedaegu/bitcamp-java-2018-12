@@ -3,23 +3,31 @@ package com.eomcs.lms.handler;
 import java.util.Arrays;
 
 public class ArrayList<E> {
+
   static final int LENGTH = 10;
-  E[] list;
+  Object[] list;
   int size = 0;
 
   public ArrayList() {
-    list = (E[]) new Object[LENGTH];
+    list = new Object[LENGTH];
   }
 
-  public ArrayList(int a) {bject[] li
-    if (a > LENGTH)
-      list = (E[]) new Object[a];
+  public ArrayList(int initialCapacity) {
+    if (initialCapacity > LENGTH)
+      list = new Object [initialCapacity];
     else
-      list = (E[]) new Object[LENGTH];
+      list = new Object[LENGTH];
   }
 
-  public E[] toArray() {
-    return Arrays.copyOf(list, size);
+  @SuppressWarnings("unchecked")
+  public E[] toArray(E[] sampleArr) {
+    return (E[]) Arrays.copyOf(list, size, sampleArr.getClass());
+    
+//    E[] arr = Arrays.copyOf(sampleArr, size);
+//    for (int i = 0; i < size; i++) {
+//      arr[i] = (E) list[i];
+//    }
+//    return arr;
   }
 
 
