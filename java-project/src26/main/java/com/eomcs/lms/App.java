@@ -97,7 +97,8 @@ public class App {
         if (commandHandler == null)
           System.out.println("실행할 수 없는 명령입니다.");
         else 
-          commandHandler.execute();
+          commandHandler.execute(); // 명령어를 처리할 객체를 찾았으면
+        // Command 계약서에 나와있는대로 호출한다.
       }
       
       System.out.println(); // 결과 출력 후 빈 줄 출력
