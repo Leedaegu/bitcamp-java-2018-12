@@ -12,7 +12,7 @@ public class PlusCommand implements Command{
  
   @Override
   public void excute() {
-    System.out.print("값1? ");s
+    System.out.print("값1? ");
     int a = Integer.parseInt(keyboard.nextLine());
     
     System.out.print("값2? ");
