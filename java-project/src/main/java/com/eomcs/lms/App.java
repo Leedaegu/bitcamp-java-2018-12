@@ -172,7 +172,21 @@ public class App {
   }
 
   public static void saveLessonDate() {
-    Lesson.outWrite(lessonList); // OutWrite메서드로 빼줬다.
+    try (FileWriter out = new FileWriter("lesson.csv");){
+      for(Lesson lesson : lessonList) {
+        out.write(String.format("%d,%s,%s,%s,%s,%d,%d\n", // 여기에 공백이있으면 저장할때는 상관없지만 출력시에 공백을 읽어서 날짜데이터가 아니기때문에 오류가난다!
+            lesson.getNo(),
+            lesson.getTitle(),
+            lesson.getContents(),
+            lesson.getStartDate(),
+            lesson.getEndDate(),
+            lesson.getTotalHours(),
+            lesson.getDayHours()));
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+
+    }
     
   }
   
@@ -197,7 +211,21 @@ public class App {
   }
 
   public static void saveMemberDate() {
-    Member.outWrite(memberList); // OutWrite메서드로 빼줬다.
+    try (FileWriter out = new FileWriter("member.csv");){
+      for(Member member : memberList) {
+        out.write(String.format("%d,%s,%s,%s,%s,%s,%s\n", // 여기에 공백이있으면 저장할때는 상관없지만 출력시에 공백을 읽어서 날짜데이터가 아니기때문에 오류가난다!
+            member.getNo(),
+            member.getName(),
+            member.getEmail(),
+            member.getPassword(),
+            member.getPhoto(),
+            member.getTel(),
+            member.getRegisteredDate()));
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+
+    }
     
   }
 
@@ -221,8 +249,19 @@ public class App {
     }
   }
 
-  public static void saveBoardDate() {
-    Board.outWrite(boardList); // OutWrite메서드로 빼줬다.
-    
+  private static void saveBoardDate() {
+    try (FileWriter out = new FileWriter("board.csv");){
+      for(Board board : boardList) {
+        out.write(String.format("%d,%s,%s,%d\n", // 여기에 공백이있으면 저장할때는 상관없지만 출력시에 공백을 읽어서 날짜데이터가 아니기때문에 오류가난다!
+            board.getNo(),
+            board.getContents(),
+            board.getCreatedDate(),
+            board.getViewCount()));
+
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+
+    }    
   }
 }

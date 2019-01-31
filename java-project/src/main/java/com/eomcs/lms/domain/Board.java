@@ -52,20 +52,5 @@ public class Board implements Cloneable {
 
     return board;
   }
-
-  public static void outWrite(ArrayList<Board> boardList)  {
-    try (FileWriter out = new FileWriter("board.csv");){
-      for(Board board : boardList) {
-        out.write(String.format("%d,%s,%s,%d\n", // 여기에 공백이있으면 저장할때는 상관없지만 출력시에 공백을 읽어서 날짜데이터가 아니기때문에 오류가난다!
-            board.getNo(),
-            board.getContents(),
-            board.getCreatedDate(),
-            board.getViewCount()));
-
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-
-    }
-  }
+  
 }

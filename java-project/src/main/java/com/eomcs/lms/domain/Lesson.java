@@ -76,24 +76,7 @@ public class Lesson implements Cloneable {
 
     return lesson;
   }
-
-  public static void outWrite(ArrayList<Lesson> lessonList)  {
-    try (FileWriter out = new FileWriter("lesson.csv");){
-      for(Lesson lesson : lessonList) {
-        out.write(String.format("%d,%s,%s,%s,%s,%d,%d\n", // 여기에 공백이있으면 저장할때는 상관없지만 출력시에 공백을 읽어서 날짜데이터가 아니기때문에 오류가난다!
-            lesson.getNo(),
-            lesson.getTitle(),
-            lesson.getContents(),
-            lesson.getStartDate(),
-            lesson.getEndDate(),
-            lesson.getTotalHours(),
-            lesson.getDayHours()));
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-
-    }
-  }
+ 
 }
 
 

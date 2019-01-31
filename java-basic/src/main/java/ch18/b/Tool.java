@@ -12,5 +12,5 @@ public abstract class Tool implements SpecA {
   
   // 모든 추상 메서드를 구현해야 한다. 한 개라도 빠뜨리면 concrete 클래스로 만들 수 없다.
   // => 추상 클래스로 만들어야 한다. 왜? 추상 메서드가 있으니까!
-  //public void m2() {} // OK!
+  // public void m2() {} // OK!
 }

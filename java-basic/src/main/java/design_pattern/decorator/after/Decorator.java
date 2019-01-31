@@ -4,7 +4,6 @@ package design_pattern.decorator.after;
 // 다른 부속품의 수퍼 클래스 역할을 한다.
 // => 그래서 추상 클래스로 정의한다.
 public abstract class Decorator extends Car{
-
   
   Car car;
   // 비록 Car를 상속 받았지만 스스로 Car일을 하지는 않는다.
