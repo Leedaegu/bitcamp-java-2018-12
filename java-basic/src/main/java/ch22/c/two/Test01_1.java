@@ -1,6 +1,5 @@
 // 버퍼 사용 - 사용 전
-// 
-package ch22.c;
+package ch22.c.two;
 
 import java.io.FileInputStream;
 
@@ -8,13 +7,14 @@ public class Test01_1 {
   public static void main(String[] args) {
     
     try {
-      FileInputStream in = new FileInputStream("jls11.pdf");
+      FileInputStream in = new FileInputStream("abc.txt");
       
       System.out.println("데이터 읽는 중...");
       
       long start = System.currentTimeMillis();
       
       int b;
+      
       while ((b = in.read()) != -1) {
         //
       }
@@ -31,9 +31,6 @@ public class Test01_1 {
     System.out.println("출력 완료!");
   }
 }
-
-
-
 
 
 
