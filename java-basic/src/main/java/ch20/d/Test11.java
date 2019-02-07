@@ -1,48 +1,31 @@
-// 커스텀 key 사용
+// 커스텀 key 사용 II
 package ch20.d;
 
-import java.util.Enumeration;
 import java.util.HashMap;
 
-
 public class Test11 {
-
+  
   public static void main(String[] args) {
-    class key {
+    class Key {
       int major;
       int minor;
-
-      public key(int major, int minor) {
+      
+      public Key(int major, int minor) {
         this.major = major;
-        this.minor = minor;       
+        this.minor = minor;
       }
 
       @Override
       public String toString() {
-        return "key [major=" + major + ", minor=" + minor + "]";
-      }      
-    }
-    
-    class Student {
-      String name;
-      int age;
-
-      public Student(String name, int age) {
-        this.name = name;
-        this.age = age;       
-      }
-
-      @Override
-      public String toString() {
-        return "Student [name=" + name + ", age=" + age + "]";
+        return "Key [major=" + major + ", minor=" + minor + "]";
       }
 
       @Override
       public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + age;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + major;
+        result = prime * result + minor;
         return result;
       }
 
@@ -54,40 +37,54 @@ public class Test11 {
           return false;
         if (getClass() != obj.getClass())
           return false;
-        Student other = (Student) obj;
-        if (age != other.age)
+        Key other = (Key) obj;
+        if (major != other.major)
           return false;
-        if (name == null) {
-          if (other.name != null)
-            return false;
-        } else if (!name.equals(other.name))
+        if (minor != other.minor)
           return false;
         return true;
-      }       
-
+      }
+      
       
     }
     
-    key k1 = new key(100, 1);
-    key k2 = new key(100, 2);
-    key k3 = new key(100, 3);
-    
-    HashMap<key, Student> table = new HashMap<>();
-    table.put(k1, new Student("홍길동", 20));
-    table.put(k2, new Student("임꺽정", 30));
-    table.put(k3, new Student("윤봉길", 20));
+    class Student {
+      String name;
+      int age;
+      
+      public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+      }
 
-    System.out.println(table.get(k1));
-    System.out.println(table.get(k2));
-    System.out.println(table.get(k3));
+      @Override
+      public String toString() {
+        return "Student [name=" + name + ", age=" + age + "]";
+      }
+    }
     
-    key k4 = new key(100, 2);    
-    System.out.println(table.get(k4));
+    Key k1 = new Key(100, 1);
+    Key k2 = new Key(100, 2);
+    Key k3 = new Key(100, 3);
+    
+    HashMap<Key, Student> map = new HashMap<>();
+    map.put(k1, new Student("홍길동", 20));
+    map.put(k2, new Student("임꺽정", 30));
+    map.put(k3, new Student("윤봉길", 20));
+    
+    System.out.println(map.get(k1));
+    System.out.println(map.get(k2));
+    System.out.println(map.get(k3));
+
+    Key k4 = new Key(100, 2);
+    System.out.println(map.get(k4));
 
     System.out.println(k2 == k4);
     System.out.println(k2.hashCode() == k4.hashCode());
     System.out.println(k2.equals(k4));
     
-    
   }
 }
+
+
+

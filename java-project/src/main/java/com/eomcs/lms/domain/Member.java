@@ -1,10 +1,10 @@
 package com.eomcs.lms.domain;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.Serializable;
 import java.sql.Date;
-import java.util.ArrayList;
 
-public class Member implements Cloneable {
+public class Member implements Cloneable, Serializable {
+  private static final long serialVersionUID = 1L;
+  
   private int no;
   private String name;
   private String email;
@@ -61,20 +61,5 @@ public class Member implements Cloneable {
     this.registeredDate = registeredDate;
   }
   
-  // 인스턴스 필드를 사용하지않는 메서드는 스태틱으로 선언하라.
-  public static Member valueOf(String csv) { // 파라미터 csv 는 "번호,제목,내용,시작일,종료일,총강의시간,일강의시간" 형식으로된 문자열이다.
-    String[] values = csv.split(",");
-
-    Member member = new Member();
-    member.setNo(Integer.parseInt(values[0]));
-    member.setName(values[1]);
-    member.setEmail(values[2]);
-    member.setPassword(values[3]);
-    member.setPhoto(values[4]);
-    member.setTel(values[5]);
-    member.setRegisteredDate(Date.valueOf(values[6]));
-
-    return member;
-  }
   
 }

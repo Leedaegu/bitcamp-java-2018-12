@@ -1,7 +1,6 @@
 // HashMap에서 value 목록 꺼내기
 package ch20.d;
 
-import java.util.Collection;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
