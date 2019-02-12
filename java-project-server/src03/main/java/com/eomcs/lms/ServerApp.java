@@ -1,10 +1,10 @@
+// 2단계: 클라이언트의 연결을 승인한다.
 package com.eomcs.lms;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import com.eomcs.lms.domain.Member;
+import java.util.Scanner;
 
 public class ServerApp {
 
@@ -15,16 +15,15 @@ public class ServerApp {
       
       while (true) {
         try (Socket socket = serverSocket.accept();
-            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
+            Scanner in = new Scanner(socket.getInputStream());
+            PrintWriter out = new PrintWriter(socket.getOutputStream())) {
           
           System.out.println("클라이언트와 연결되었음.");
           
-          Member request = (Member)in.readObject();
-          System.out.println(request);
+          String request = in.nextLine();
+          out.println(request);
+          out.flush();
           
-          out.writeUTF("객체를 받았습니다.");
-          out.flush();          
           
         } catch (Exception e) {
           e.printStackTrace();
