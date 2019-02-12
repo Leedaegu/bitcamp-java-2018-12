@@ -1,4 +1,4 @@
-// Stateless 서버 만들기
+// Stateless 응용 - 서버에서 계산 결과 유지하기 - 선생님 소스
 package ch23.e;
 
 import java.io.BufferedReader;
