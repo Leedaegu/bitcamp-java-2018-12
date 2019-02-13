@@ -17,7 +17,7 @@ public class Member implements Cloneable, Serializable {
   public Member clone() throws CloneNotSupportedException {
     return (Member) super.clone();
   }
-    
+  
   @Override
   public String toString() {
     return "Member [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password
