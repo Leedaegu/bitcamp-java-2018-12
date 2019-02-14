@@ -1,21 +1,21 @@
 package com.eomcs.lms.handler;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.sql.Date;
-import java.util.List;
 import java.util.Scanner;
+import com.eomcs.lms.agent.LessonAgent;
 import com.eomcs.lms.domain.Lesson;
 
 public class LessonAddCommand implements Command {
 
   Scanner keyboard;
+  LessonAgent lessonAgent;
 
-  public LessonAddCommand(Scanner keyboard) {
+  public LessonAddCommand(Scanner keyboard,LessonAgent lessonAgent) {
     this.keyboard = keyboard;
+    this.lessonAgent = lessonAgent;
   }
 
   @Override
-  public void execute(ObjectInputStream in, ObjectOutputStream out) {
+  public void execute() {
     Lesson lesson = new Lesson();
 
     System.out.print("번호? ");
@@ -40,23 +40,12 @@ public class LessonAddCommand implements Command {
     lesson.setDayHours(Integer.parseInt(keyboard.nextLine()));
 
     try {
-    out.writeUTF("/lesson/add"); 
-    out.flush();
-    if (!in.readUTF().equals("OK"))
-      return;
-    
-    out.writeObject(lesson);
-    out.flush();
-    
-    String status = in.readUTF();
-    
-    if (!status.equals("OK"))
-      throw new Exception("서버에서 저장 실패!");
-    
-    System.out.println("저장하였습니다.");
-    
+      lessonAgent.add(lesson);
+      System.out.println("저장하였습니다.");
+      
     } catch (Exception e) {
-      System.out.printf("수업데이터 저장 오류! : %s\n", e.getMessage());
+      System.out.printf("실행 오류! : %s\n", e.getMessage());
     }
-  }  
+  }
+  
 }

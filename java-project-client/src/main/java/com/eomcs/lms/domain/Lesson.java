@@ -12,7 +12,7 @@ public class Lesson implements Cloneable, Serializable {
   private Date endDate;
   private int totalHours;
   private int dayHours;
-  
+   
   @Override
   public Lesson clone() throws CloneNotSupportedException {
     return (Lesson) super.clone();
