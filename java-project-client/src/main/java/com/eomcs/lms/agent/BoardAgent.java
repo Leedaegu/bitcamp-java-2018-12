@@ -27,6 +27,7 @@ public class BoardAgent {
 
       out.writeUTF(rootpath + "/list"); 
       out.flush();
+      
       if (!in.readUTF().equals("OK"))
         throw new Exception("서버에서 해당 명령어를 처리하지 못합니다.");
 
@@ -46,6 +47,7 @@ public class BoardAgent {
 
       out.writeUTF(rootpath + "/add"); 
       out.flush();
+      
       if (!in.readUTF().equals("OK"))
         throw new Exception("서버에서 해당 명령어를 처리하지 못합니다.");
 

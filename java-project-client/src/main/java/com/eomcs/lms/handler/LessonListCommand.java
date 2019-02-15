@@ -19,7 +19,7 @@ public class LessonListCommand implements Command {
   public void execute() {
     try {
       List<Lesson> lessons = lessonAgent.list();
-      
+      System.out.println(lessons.size());      
       for (Lesson lesson : lessons) {
         System.out.printf("%3d, %-15s, %10s ~ %10s, %4d\n", 
             lesson.getNo(), lesson.getTitle(), 

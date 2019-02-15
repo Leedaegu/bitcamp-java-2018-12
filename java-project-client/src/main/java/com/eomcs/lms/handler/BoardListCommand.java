@@ -17,8 +17,9 @@ public class BoardListCommand implements Command {
   @Override 
   public void execute() {
     try {
-      List<Board> boards = boardAgent.list();
       
+      List<Board> boards = boardAgent.list();
+      System.out.println(boards.size());
       for (Board board : boards) {
         System.out.printf("%3d, %-20s, %s, %d\n", 
             board.getNo(), board.getContents(), 

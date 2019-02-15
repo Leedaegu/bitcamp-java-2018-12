@@ -41,6 +41,7 @@ public class BoardService implements Service {
   private void add(ObjectInputStream in, ObjectOutputStream out) throws Exception {
     out.writeUTF("OK");
     out.flush();
+    
     boardDao.insert((Board)in.readObject());
     out.writeUTF("OK");
   }
@@ -48,8 +49,8 @@ public class BoardService implements Service {
   private void list(ObjectInputStream in, ObjectOutputStream out) throws Exception {
     out.writeUTF("OK");
     out.flush();
-    out.writeUTF("OK");
     
+    out.writeUTF("OK");    
     out.writeUnshared(boardDao.findAll());
   }
 

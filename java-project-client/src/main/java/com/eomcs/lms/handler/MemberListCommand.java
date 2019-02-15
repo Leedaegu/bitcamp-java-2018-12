@@ -18,6 +18,7 @@ public class MemberListCommand implements Command {
   public void execute() {
     try {
       List<Member> members = memberAgent.list();
+      System.out.println(members.size());
       for (Member member : members) {
         System.out.printf("%3d, %-4s, %-20s, %-15s, %s\n", 
             member.getNo(), member.getName(), 

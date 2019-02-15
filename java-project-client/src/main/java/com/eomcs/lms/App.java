@@ -120,7 +120,7 @@ public class App {
     return keyboard.nextLine().toLowerCase();
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) {    
     App app = new App();
 
     // App 을 실행한다.

@@ -64,12 +64,6 @@ public class ServerApp {
           String request = in.readUTF();
           System.out.println(request);
 
-          if (request.equals("quit")) {
-            quit(in, out);
-            out.flush();
-            continue;
-          }
-
           String serviceName = null;
           for (String key : ketSet) {
             if(request.startsWith(key)) {
@@ -96,31 +90,7 @@ public class ServerApp {
       e.printStackTrace();
     }
   }
-
-  static void quit(ObjectInputStream in, ObjectOutputStream out) throws Exception {
-    try {
-      boardDao.saveData();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-      //e.printStackTrace();
-    }
-
-    try {
-      lessonDao.saveData();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-      //e.printStackTrace();
-    }
-
-    try {
-      memberDao.saveData();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-      //e.printStackTrace();
-    }
-
-    out.writeUTF("종료함!");
-  }
+ 
 }
 
 
