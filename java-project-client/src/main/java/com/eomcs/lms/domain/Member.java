@@ -12,7 +12,7 @@ public class Member implements Cloneable, Serializable {
   private String photo;
   private String tel;
   private Date registeredDate;
-   
+  
   @Override
   public Member clone() throws CloneNotSupportedException {
     return (Member) super.clone();

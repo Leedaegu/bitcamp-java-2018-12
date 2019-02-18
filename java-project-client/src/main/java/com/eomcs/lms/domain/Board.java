@@ -9,7 +9,7 @@ public class Board implements Cloneable, Serializable {
   private String contents;
   private Date createdDate;
   private int viewCount;
-   
+  
   @Override
   public Board clone() throws CloneNotSupportedException {
     return (Board) super.clone();

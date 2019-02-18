@@ -3,14 +3,14 @@ package com.eomcs.lms.service;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import com.eomcs.lms.dao.MemberDao;
+import com.eomcs.lms.dao.MemberDaoImpl;
 import com.eomcs.lms.domain.Member;
 
-public class MemberService implements Service {
+public class MemberDaoSkel implements Service {
 
-  MemberDao memberDao;
+  MemberDaoImpl memberDao;
 
-  public MemberService(MemberDao memberDao) {
+  public MemberDaoSkel(MemberDaoImpl memberDao) {
     this.memberDao = memberDao;
   }
 
