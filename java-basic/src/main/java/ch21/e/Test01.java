@@ -9,7 +9,7 @@ public class Test01 {
   // => 단지 클래스 이름으로 예외를 직관적으로 알리기 위해 사용한다.
   //
 
-  static class MyException extends Exception{
+  static class MyException extends Exception {
 
     // 보통 수퍼클래스를 상속 받은후 수퍼 클래스와 같은 생성자를 만든다.
     // 서브 클래스 생성자는 단지 수퍼 클래스의 생성자를 만든다.
