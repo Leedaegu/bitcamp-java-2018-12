@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
+import com.eomcs.lms.dao.BoardDaoImpl;
+import com.eomcs.lms.dao.LessonDaoImpl;
+import com.eomcs.lms.dao.MemberDaoImpl;
 import com.eomcs.lms.handler.BoardAddCommand;
 import com.eomcs.lms.handler.BoardDeleteCommand;
 import com.eomcs.lms.handler.BoardDetailCommand;
@@ -22,9 +25,6 @@ import com.eomcs.lms.handler.MemberDeleteCommand;
 import com.eomcs.lms.handler.MemberDetailCommand;
 import com.eomcs.lms.handler.MemberListCommand;
 import com.eomcs.lms.handler.MemberUpdateCommand;
-import com.eomcs.lms.proxy.BoardDaoProxy;
-import com.eomcs.lms.proxy.LessonDaoProxy;
-import com.eomcs.lms.proxy.MemberDaoProxy;
 
 public class App {
 
@@ -36,21 +36,21 @@ public class App {
 
     Map<String,Command> commandMap = new HashMap<>();
 
-    LessonDaoProxy lessonDao = new LessonDaoProxy("localhost", 8888, "/lesson");
+    LessonDaoImpl lessonDao = new LessonDaoImpl("localhost", 8888, "/lesson");
     commandMap.put("/lesson/add", new LessonAddCommand(keyboard, lessonDao));
     commandMap.put("/lesson/list", new LessonListCommand(keyboard, lessonDao));
     commandMap.put("/lesson/detail", new LessonDetailCommand(keyboard, lessonDao));
     commandMap.put("/lesson/update", new LessonUpdateCommand(keyboard, lessonDao));
     commandMap.put("/lesson/delete", new LessonDeleteCommand(keyboard, lessonDao));
 
-    MemberDaoProxy memberDao = new MemberDaoProxy("localhost", 8888, "/member");
+    MemberDaoImpl memberDao = new MemberDaoImpl("localhost", 8888, "/member");
     commandMap.put("/member/add", new MemberAddCommand(keyboard, memberDao));
     commandMap.put("/member/list", new MemberListCommand(keyboard, memberDao));
     commandMap.put("/member/detail", new MemberDetailCommand(keyboard, memberDao));
     commandMap.put("/member/update", new MemberUpdateCommand(keyboard, memberDao));
     commandMap.put("/member/delete", new MemberDeleteCommand(keyboard, memberDao));
 
-    BoardDaoProxy boardDao = new BoardDaoProxy("localhost", 8888, "/board");
+    BoardDaoImpl boardDao = new BoardDaoImpl("localhost", 8888, "/board");
     commandMap.put("/board/add", new BoardAddCommand(keyboard, boardDao));
     commandMap.put("/board/list", new BoardListCommand(keyboard, boardDao));
     commandMap.put("/board/detail", new BoardDetailCommand(keyboard, boardDao));

@@ -1,21 +1,20 @@
-package com.eomcs.lms.proxy;
+package com.eomcs.lms.dao;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.List;
-import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.domain.Lesson;
 
 //서버쪽에 있는 LessonDaoImpl 객체를 대행할 클라이언트측 대행자 클래스 정의 
 //
-public class LessonDaoProxy implements LessonDao {
+public class LessonDaoImpl implements LessonDao {
 
   String serverAddr;
   int port;
   String rootPath;
 
-  public LessonDaoProxy(String serverAddr, int port, String rootPath) {
+  public LessonDaoImpl(String serverAddr, int port, String rootPath) {
     this.serverAddr = serverAddr;
     this.port = port;
     this.rootPath = rootPath;
