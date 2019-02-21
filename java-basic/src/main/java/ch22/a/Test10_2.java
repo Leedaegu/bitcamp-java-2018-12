@@ -23,7 +23,7 @@ public class Test10_2 {
     File file = new File(".");
 
     // 하위 파일이나 디렉토리의 상세정보 알아내기
-    String[] names = file.list();
+    String[] names = file.list(new TextFileFilter());
 
     for(String name : names) {
       System.out.println(name);
@@ -31,3 +31,4 @@ public class Test10_2 {
 
   }
 }  
+
