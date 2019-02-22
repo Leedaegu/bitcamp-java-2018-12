@@ -14,8 +14,7 @@ public class Restaurant extends Unit {
 
   @Override
   public void install() {
-    System.out.println("내부 배선과 창을 붙인다.");
-    
+    System.out.println("내부 배선과 창을 붙인다.");    
   }
 
   @Override

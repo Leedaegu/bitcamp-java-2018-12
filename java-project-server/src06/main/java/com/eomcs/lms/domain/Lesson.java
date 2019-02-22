@@ -17,7 +17,7 @@ public class Lesson implements Cloneable, Serializable {
   public Lesson clone() throws CloneNotSupportedException {
     return (Lesson) super.clone();
   }
-   
+  
   @Override
   public String toString() {
     return "Lesson [no=" + no + ", title=" + title + ", contents=" + contents + ", startDate="

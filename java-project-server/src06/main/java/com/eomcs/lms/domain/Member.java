@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Member implements Cloneable, Serializable {
   private static final long serialVersionUID = 1L;
-
+  
   private int no;
   private String name;
   private String email;
@@ -12,19 +12,20 @@ public class Member implements Cloneable, Serializable {
   private String photo;
   private String tel;
   private Date registeredDate;
-
-  public Member() {}
-
+  
+  public Member() {
+  }
+  
   public Member(int no, String name) {
     this.no = no;
-    this.name = name;    
+    this.name = name;
   }
-
+  
   @Override
   public Member clone() throws CloneNotSupportedException {
     return (Member) super.clone();
   }
-
+  
   @Override
   public String toString() {
     return "Member [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password
@@ -73,6 +74,6 @@ public class Member implements Cloneable, Serializable {
   public void setRegisteredDate(Date registeredDate) {
     this.registeredDate = registeredDate;
   }
-
-
+  
+  
 }

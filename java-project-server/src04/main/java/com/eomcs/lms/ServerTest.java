@@ -1,3 +1,4 @@
+// 4단계: 서버 실행 테스트
 package com.eomcs.lms;
 
 import java.io.ObjectInputStream;
@@ -20,12 +21,14 @@ public class ServerTest {
       member.setName("홍길동");
       member.setEmail("hong@test.com");
       member.setPassword("1111");
-      member.setPhoto("hong.gif");
+      member.setPassword("hong.gif");
       member.setTel("1111-1111");
-     
-      out.writeObject(member);
-      out.flush();     
       
+      // Member 객체를 서버로 serialize하라!
+      out.writeObject(member);
+      out.flush();
+      
+      // 또한 서버에서 serialize한 Member 객체를 받아라. 
       System.out.println(in.readObject());
       
     } catch (Exception e) {

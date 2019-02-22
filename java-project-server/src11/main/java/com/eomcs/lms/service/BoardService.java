@@ -1,11 +1,10 @@
-// 10단계: 데이터를 파일로 관리한다.
+// 11단계: AbstractService 상속 받기
 package com.eomcs.lms.service;
 
 import com.eomcs.lms.domain.Board;
 
-public class BoardService extends AbstractService<Board>{
+public class BoardService extends AbstractService<Board> {
 
-  @Override
   public void execute(String request) throws Exception {
 
     switch (request) {
