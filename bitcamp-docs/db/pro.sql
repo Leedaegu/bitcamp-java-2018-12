@@ -17,7 +17,7 @@ DROP TABLE user;
 DROP TABLE conf;
 
 -- 프로젝트발주
-DROP TABLE order;
+DROP TABLE pro_order;
 
 -- 개발사
 DROP TABLE devel;
@@ -348,51 +348,51 @@ COMMENT ON INDEX PK_conf IS '컨펌 기본키';
 COMMENT ON CONSTRAINT conf.PK_conf IS '컨펌 기본키';
 
 -- 프로젝트발주
-CREATE TABLE order (
-  order_id   INTEGER  NOT NULL, -- 프로젝트발주번호
-  order_dy   DATETIME NOT NULL, -- 프로젝트발주일
-  order_pay  INTEGER  NOT NULL, -- 프로젝트견적
-  order_cont TEXT     NOT NULL, -- 발주내용
-  client_id  INTEGER  NOT NULL  -- 고객사번호
+CREATE TABLE pro_order (
+  pro_order_id   INTEGER  NOT NULL, -- 프로젝트발주번호
+  pro_order_dy   DATETIME NOT NULL, -- 프로젝트발주일
+  pro_order_pay  INTEGER  NOT NULL, -- 프로젝트견적
+  pro_order_cont TEXT     NOT NULL, -- 발주내용
+  client_id      INTEGER  NOT NULL  -- 고객사번호
 );
 
 -- 프로젝트발주 기본키
-CREATE UNIQUE INDEX PK_order
-  ON order ( -- 프로젝트발주
-    order_id ASC -- 프로젝트발주번호
+CREATE UNIQUE INDEX PK_pro_order
+  ON pro_order ( -- 프로젝트발주
+    pro_order_id ASC -- 프로젝트발주번호
   );
 
 -- 프로젝트발주
-ALTER TABLE order
+ALTER TABLE pro_order
   ADD
-    CONSTRAINT PK_order -- 프로젝트발주 기본키
+    CONSTRAINT PK_pro_order -- 프로젝트발주 기본키
     PRIMARY KEY (
-      order_id -- 프로젝트발주번호
+      pro_order_id -- 프로젝트발주번호
     );
 
 -- 프로젝트발주
-COMMENT ON TABLE order IS '프로젝트발주';
+COMMENT ON TABLE pro_order IS '프로젝트발주';
 
 -- 프로젝트발주번호
-COMMENT ON COLUMN order.order_id IS '프로젝트발주번호';
+COMMENT ON COLUMN pro_order.pro_order_id IS '프로젝트발주번호';
 
 -- 프로젝트발주일
-COMMENT ON COLUMN order.order_dy IS '프로젝트발주일';
+COMMENT ON COLUMN pro_order.pro_order_dy IS '프로젝트발주일';
 
 -- 프로젝트견적
-COMMENT ON COLUMN order.order_pay IS '프로젝트견적';
+COMMENT ON COLUMN pro_order.pro_order_pay IS '프로젝트견적';
 
 -- 발주내용
-COMMENT ON COLUMN order.order_cont IS '발주내용';
+COMMENT ON COLUMN pro_order.pro_order_cont IS '발주내용';
 
 -- 고객사번호
-COMMENT ON COLUMN order.client_id IS '고객사번호';
+COMMENT ON COLUMN pro_order.client_id IS '고객사번호';
 
 -- 프로젝트발주 기본키
-COMMENT ON INDEX PK_order IS '프로젝트발주 기본키';
+COMMENT ON INDEX PK_pro_order IS '프로젝트발주 기본키';
 
 -- 프로젝트발주 기본키
-COMMENT ON CONSTRAINT order.PK_order IS '프로젝트발주 기본키';
+COMMENT ON CONSTRAINT pro_order.PK_pro_order IS '프로젝트발주 기본키';
 
 -- 개발사
 CREATE TABLE devel (
@@ -572,15 +572,15 @@ COMMENT ON CONSTRAINT pay.PK_pay IS '결제 기본키';
 
 -- 개발사프로젝트발주
 CREATE TABLE devel_order (
-  devel_id INTEGER NOT NULL, -- 개발사번호
-  order_id INTEGER NOT NULL  -- 프로젝트발주번호
+  devel_id     INTEGER NOT NULL, -- 개발사번호
+  pro_order_id INTEGER NOT NULL  -- 프로젝트발주번호
 );
 
 -- 개발사프로젝트발주 기본키
 CREATE UNIQUE INDEX PK_devel_order
   ON devel_order ( -- 개발사프로젝트발주
-    devel_id ASC, -- 개발사번호
-    order_id ASC  -- 프로젝트발주번호
+    devel_id     ASC, -- 개발사번호
+    pro_order_id ASC  -- 프로젝트발주번호
   );
 
 -- 개발사프로젝트발주
@@ -588,8 +588,8 @@ ALTER TABLE devel_order
   ADD
     CONSTRAINT PK_devel_order -- 개발사프로젝트발주 기본키
     PRIMARY KEY (
-      devel_id, -- 개발사번호
-      order_id  -- 프로젝트발주번호
+      devel_id,     -- 개발사번호
+      pro_order_id  -- 프로젝트발주번호
     );
 
 -- 개발사프로젝트발주
@@ -599,7 +599,7 @@ COMMENT ON TABLE devel_order IS '개발사프로젝트발주';
 COMMENT ON COLUMN devel_order.devel_id IS '개발사번호';
 
 -- 프로젝트발주번호
-COMMENT ON COLUMN devel_order.order_id IS '프로젝트발주번호';
+COMMENT ON COLUMN devel_order.pro_order_id IS '프로젝트발주번호';
 
 -- 개발사프로젝트발주 기본키
 COMMENT ON INDEX PK_devel_order IS '개발사프로젝트발주 기본키';
@@ -720,9 +720,9 @@ ALTER TABLE conf
 COMMENT ON CONSTRAINT conf.FK_proj_TO_conf IS '프로젝트 -> 컨펌';
 
 -- 프로젝트발주
-ALTER TABLE order
+ALTER TABLE pro_order
   ADD
-    CONSTRAINT FK_client_TO_order -- 고객사 -> 프로젝트발주
+    CONSTRAINT FK_client_TO_pro_order -- 고객사 -> 프로젝트발주
     FOREIGN KEY (
       client_id -- 고객사번호
     )
@@ -731,7 +731,7 @@ ALTER TABLE order
     );
 
 -- 고객사 -> 프로젝트발주
-COMMENT ON CONSTRAINT order.FK_client_TO_order IS '고객사 -> 프로젝트발주';
+COMMENT ON CONSTRAINT pro_order.FK_client_TO_pro_order IS '고객사 -> 프로젝트발주';
 
 -- 개발사
 ALTER TABLE devel
@@ -778,13 +778,13 @@ COMMENT ON CONSTRAINT devel_order.FK_devel_TO_devel_order IS '개발사 -> 개�
 -- 개발사프로젝트발주
 ALTER TABLE devel_order
   ADD
-    CONSTRAINT FK_order_TO_devel_order -- 프로젝트발주 -> 개발사프로젝트발주
+    CONSTRAINT FK_pro_order_TO_devel_order -- 프로젝트발주 -> 개발사프로젝트발주
     FOREIGN KEY (
-      order_id -- 프로젝트발주번호
+      pro_order_id -- 프로젝트발주번호
     )
-    REFERENCES order ( -- 프로젝트발주
-      order_id -- 프로젝트발주번호
+    REFERENCES pro_order ( -- 프로젝트발주
+      pro_order_id -- 프로젝트발주번호
     );
 
 -- 프로젝트발주 -> 개발사프로젝트발주
-COMMENT ON CONSTRAINT devel_order.FK_order_TO_devel_order IS '프로젝트발주 -> 개발사프로젝트발주';
+COMMENT ON CONSTRAINT devel_order.FK_pro_order_TO_devel_order IS '프로젝트발주 -> 개발사프로젝트발주';
