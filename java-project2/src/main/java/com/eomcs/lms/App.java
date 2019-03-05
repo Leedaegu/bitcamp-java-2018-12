@@ -36,7 +36,7 @@ public class App {
     listeners.add(listener);
   }
   
-  public void service() throws Exception {
+  public  void service() throws Exception {
 
     // App에서 사용할 객체를 보관하는 저장소
     HashMap<String,Object> context = new HashMap<>();

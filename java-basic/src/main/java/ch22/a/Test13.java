@@ -18,7 +18,7 @@ public class Test13 {
   static void delete(File dir) {
     File[] files = dir.listFiles();
     for(File file : files) {
-      if (file.isFile()) { 
+      if (file.isFile()) {
         file.delete();
       } else {
         delete(file);
