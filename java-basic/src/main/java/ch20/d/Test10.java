@@ -1,7 +1,6 @@
 // 커스텀 key 사용
 package ch20.d;
 
-import java.util.Enumeration;
 import java.util.HashMap;
 
 
