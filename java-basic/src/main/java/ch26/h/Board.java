@@ -1,6 +1,7 @@
-package ch26.e;
+package ch26.h;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Board {
   
@@ -10,9 +11,12 @@ public class Board {
   private Date createdDate;
   private int viewCount;
   
+  private List<AttachFile> attachFiles;
+  
+  
   @Override
   public String toString() {
-    return "Board2 [no=" + no + ", title=" + title + ", contents=" + contents + ", createdDate="
+    return "Board [no=" + no + ", title=" + title + ", contents=" + contents + ", createdDate="
         + createdDate + ", viewCount=" + viewCount + "]";
   }
   
@@ -45,6 +49,14 @@ public class Board {
   }
   public void setViewCount(int viewCount) {
     this.viewCount = viewCount;
+  }
+
+  public List<AttachFile> getAttachFiles() {
+    return attachFiles;
+  }
+
+  public void setAttachFiles(List<AttachFile> attachFiles) {
+    this.attachFiles = attachFiles;
   }
   
   

@@ -23,7 +23,7 @@
        => parameterType="클래스명 또는 별명"
     2) SQL문에 in-parameter를 지정한다.
        => #{프로퍼티명}
-    ㅓㅍㅁㅍ
+    
     정수 값을 지정할 때 _int(int 타입)나 int(java.lang.Integer) 둘 중 어떤 것을 사용해도 상관없다.
     파라미터 타입이 자바 원시 타입(byte, short, int 등)이거나 
     String, wrapper 클래스(java.lang.Byte, java.lang.Short 등)인 경우 
@@ -55,8 +55,30 @@
     insert into x_board(title,contents) 
     values(#{title},#{contents})
   </insert>
+  
+  <update id="update" parameterType="board">
+    update x_board set
+      title = #{title},
+      contents = #{contents}
+    where
+      board_id = #{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from x_board
+    where
+      board_id = #{value}
+  </delete>
+  
+<!-- insert 실행 후 자동 생성된 PK값 리턴 받기
+=> 파라미터로 전달된 객체를 통해 리턴 받는다.
+-->
+   <insert id="insert3" parameterType="board"
+   useGeneratedKeys="true" keyColumn="board_id" keyProperty="no">
+    insert into x_board(title,contents) 
+    values(#{title},#{contents})
+  </insert>
 </mapper>
-
 
 
 
