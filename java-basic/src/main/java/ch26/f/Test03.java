@@ -1,4 +1,4 @@
-// dynamic SQL 다루기 - <where> 태그의 사용 전
+// dynamic SQL 다루기 - <where> 태그 사용 전
 package ch26.f;
 
 import java.io.InputStream;
@@ -13,18 +13,18 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class Test03 {
 
   public static void main(String[] args) throws Exception {
-
+    
     InputStream inputStream = Resources.getResourceAsStream(
         "ch26/f/mybatis-config.xml");
     SqlSessionFactory sqlSessionFactory =
-        new SqlSessionFactoryBuilder().build(inputStream);
-
+      new SqlSessionFactoryBuilder().build(inputStream);
+    
     SqlSession sqlSession = sqlSessionFactory.openSession();
-
+ 
     HashMap<String,Object> params = new HashMap<>();
 
     // 여러 개의 조건으로 검색하기
-    Scanner keyboard = new Scanner(System.in);    
+    Scanner keyboard = new Scanner(System.in);
     System.out.print("게시물 번호? ");
     String value = keyboard.nextLine();
     try {
@@ -34,26 +34,27 @@ public class Test03 {
     
     System.out.print("제목? ");
     value = keyboard.nextLine();
-    if(value.length() > 0) {
+    if (value.length() > 0) {
       params.put("title", value);
     }
     
     System.out.print("내용? ");
     value = keyboard.nextLine();
-    if(value.length() > 0) {
+    if (value.length() > 0) {
       params.put("contents", value);
     }
     
     keyboard.close();
-
-
+    
+    
+    
     List<Board> boards = sqlSession.selectList("board.select3", params);
-
+    
     for (Board b : boards) {
       System.out.println(b);
     }
     System.out.println("-------------------------------");
-
+    
   }
 
 }

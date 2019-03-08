@@ -23,10 +23,10 @@ public class Test03 {
     board.setNo(5);
     board.setTitle("xxxxx");
     board.setContents("내용이라네요...");
-     
+    
     int count = sqlSession.update("board.update", board);
     System.out.println(count);
-       
+    
     sqlSession.commit();
     
     List<Board> boards = sqlSession.selectList("board.select1");

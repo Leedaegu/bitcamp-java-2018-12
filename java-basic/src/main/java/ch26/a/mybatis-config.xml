@@ -35,7 +35,7 @@
   <mappers>
   
     <!-- SQL이 보관된 파일의 경로 -->
-    <mapper resource="ch26/a/BoardMapper.xml"/> <!-- SQL 매퍼 파일이라 한다. -->
+    <mapper resource="ch26/a/BoardMapper.xml"/>
   </mappers>
 </configuration>
 

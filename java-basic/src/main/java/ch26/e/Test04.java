@@ -19,14 +19,9 @@ public class Test04 {
     
     SqlSession sqlSession = sqlSessionFactory.openSession();
  
-    Board board = new Board();
-    board.setNo(5);
-    board.setTitle("xxxxx");
-    board.setContents("내용이라네요...");
-     
-    int count = sqlSession.delete("board.delete", 9);
+    int count = sqlSession.delete("board.delete", 41);
     System.out.println(count);
-       
+    
     sqlSession.commit();
     
     List<Board> boards = sqlSession.selectList("board.select1");
