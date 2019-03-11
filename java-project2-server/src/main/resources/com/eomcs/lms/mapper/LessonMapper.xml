@@ -1,68 +1,68 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="LessonMapper">
-
-  <resultMap type="lesson"  id="lessonMap">
-    <id column="lesson_id"  property="no"/>
-    <result column="titl"   property="title"/>
-    <result column="conts"  property="contents"/>
-    <result column="sdt"    property="startDate"/>
-    <result column="edt"    property="endDate"/>
+  
+  <resultMap type="lesson" id="lessonMap">
+    <id column="lesson_id" property="no"/>
+    <result column="titl" property="title"/>
+    <result column="conts" property="contents"/>
+    <result column="sdt" property="startDate"/>
+    <result column="edt" property="endDate"/>
     <result column="tot_hr" property="totalHours"/>
     <result column="day_hr" property="dayHours"/>
   </resultMap>
   
-  <select id="findAll" resultMap="lessonMap">
-    select
-      lesson_id,
-      titl,
-      sdt,
-      edt,
+  <sql id="default-columns">
+   lesson_id, 
+      titl, 
+      sdt, 
+      edt, 
       tot_hr
+  </sql>
+  
+  <select id="findAll" resultMap="lessonMap">
+    select 
+      <include refid="default-columns"/>
     from 
       lms_lesson
-    order by
+    order by 
       lesson_id desc
   </select>
   
   <select id="findByNo" resultMap="lessonMap" parameterType="int">
-    select
-      lesson_id,
-      titl,
+    select 
+      <include refid="default-columns"/>,      
       conts,
-      sdt,
-      edt,
-      tot_hr,
       day_hr
-    from
+    from 
       lms_lesson
-    where
+    where 
       lesson_id = #{value}
   </select>
-   
+  
   <insert id="insert" parameterType="lesson">
     insert into lms_lesson(
-      titl,
-      conts,
-      sdt,
-      edt,
-      tot_hr,
+      titl, 
+      conts, 
+      sdt, 
+      edt, 
+      tot_hr, 
       day_hr)
     values(
-      #{title},
-      #{contents},
-      #{startDate},
-      #{endDate},
-      #{totalHours},
+      #{title}, 
+      #{contents}, 
+      #{startDate}, 
+      #{endDate}, 
+      #{totalHours}, 
       #{dayHours})
   </insert>
   
   <update id="update" parameterType="lesson">
-    update lms_lesson 
+    update lms_lesson
     <set>
       <if test="title != null">titl = #{title},</if>
       <if test="contents != null">conts = #{contents},</if>
@@ -75,14 +75,16 @@
   </update>
   
   <delete id="delete" parameterType="int">
-    delete
-    from 
-      lms_lesson
-    where
-      lesson_id = #{no}
+    delete from lms_lesson 
+    where lesson_id = #{value}
   </delete>
-  
 </mapper>
+
+
+
+
+
+
 
 
 

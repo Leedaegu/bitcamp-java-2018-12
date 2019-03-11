@@ -7,39 +7,37 @@
 <mapper namespace="PhotoFileMapper">
   
   <resultMap type="photoFile" id="photoFileMap">
-    <id column="photo_file_id"      property="no"/>
-    <result column="photo_id" property="photoBoardNo"/>
-    <result column="file_path"      property="filePath"/>
+    <id column="photo_file_id"  property="no"/>
+    <result column="photo_id"   property="photoBoardNo"/>
+    <result column="file_path"  property="filePath"/>
   </resultMap>
   
   <select id="findByPhotoBoardNo" resultMap="photoFileMap" parameterType="int">
-    select
-      photo_file_id,
-      photo_id,
+    select 
+      photo_file_id, 
+      photo_id, 
       file_path
-    from
+    from 
       lms_photo_file
-    where
+    where 
       photo_id = #{value}
     order by 
       photo_file_id asc
   </select>
   
-  <insert id="insert" parameterType="photoFile">
+  <insert id="insert" parameterType="list">
     insert into lms_photo_file(
       file_path,
-      photo_id)
-    values(
-      #{filePath},
-      #{photoBoardNo})
+      photo_id) 
+    values
+    <foreach collection="list" item="photoFile" separator=",">    
+      (#{photoFile.filePath},#{photoFile.photoBoardNo})
+    </foreach>
   </insert>
-   
+  
   <delete id="deleteByPhotoBoardNo" parameterType="int">
-    delete 
-    from 
-      lms_photo_file 
-    where 
-      photo_id = #{value}
+    delete from lms_photo_file 
+    where photo_id = #{value}
   </delete>
 </mapper>
 
