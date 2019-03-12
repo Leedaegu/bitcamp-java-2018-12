@@ -36,7 +36,7 @@ public class ClientApp {
       commandHistory2.offer(input);
       
       if (input.equals("history")) {
-        printCommandHistory();
+        printCommandHistory(); 
         continue;
       } else if (input.equals("history2")) {
         printCommandHistory2();
