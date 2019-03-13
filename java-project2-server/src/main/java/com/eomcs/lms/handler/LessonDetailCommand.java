@@ -8,6 +8,8 @@ public class LessonDetailCommand extends AbstractCommand {
   
   public LessonDetailCommand(LessonDao lessonDao) {
     this.lessonDao = lessonDao;
+    this.name = "/lesson/detail";
+
   }
   
 
