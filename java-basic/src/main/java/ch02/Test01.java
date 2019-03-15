@@ -52,6 +52,7 @@ public class Test01 {
     
     // => 안녕하세요 문자열을 출력하라.
     System.out.println("안녕하세요");
+    System.out.println("안녕하세요");
    
   }
 }
