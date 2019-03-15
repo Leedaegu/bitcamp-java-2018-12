@@ -8,8 +8,8 @@ import java.lang.annotation.Target;
 // IoC 컨테이너가 관리할 객체에 붙이는 애노테이션이다.
 // IoC 컨테이너는 이 애노테이션이 붙은 클래스에 대해 인스턴스를 자동으로 생성할 것이다.
 //
-@Retention(RetentionPolicy.RUNTIME) // 메모리 로딩
-@Target(ElementType.TYPE) // 클래스에만 붙일수있게 지정
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
 public @interface Component {
-  String value() default ""; // 기본값은 ""
+  String value() default "";
 }
