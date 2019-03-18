@@ -3,8 +3,6 @@
 // 
 package ch28.c;
 
-import java.lang.annotation.Annotation;
-
 @MyAnnotation // 클래스
 //@MyAnnotation2 // 필드 
 //@MyAnnotation3 // 메서드 
