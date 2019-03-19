@@ -37,7 +37,7 @@ public class Test01 {
     
     // 1) 자바 CLASSPATH 에서 설정 파일을 찾는 IoC 컨테이너
     // => 자바 CLASSPATH?
-    //    예를 들면 /home/bitcamp/git/bitcamp-java-2018-12/java-basic/bin/main
+    //    예를 들면 /Users/eomjinyoung/git/bitcamp-2018-12/java-basic/bin/main
     //    즉, JVM이 자바 클래스 파일(.class)을 로딩하기 위해 찾는 경로이다.
     //    보통 JVM을 실행할 때 -classpath 옵션이나 -cp 옵션으로 경로를 지정한다.
     //    물론 JVM이 클래스 파일을 찾을 JVM의 기본 경로($JAVA_HOME/lib)를 가장 먼저 뒤진다.
@@ -54,7 +54,7 @@ public class Test01 {
     //    file://
     ApplicationContext iocContainer2 = 
         new FileSystemXmlApplicationContext(
-            "file:///home/bitcamp/git/bitcamp-java-2018-12/java-basic/src/main/java/ch29/a/application-context.xml");
+            "file:///Users/eomjinyoung/git/bitcamp-java-2018-12/java-basic/bin/main/ch29/a/application-context.xml");
     
     // 3) 자바 클래스 파일의 애노테이션으로부터 설정 정보를 추출한다.
     // => 생성자에 설정 정보를 갖고 있는 클래스의 타입 정보를 넘긴다. 

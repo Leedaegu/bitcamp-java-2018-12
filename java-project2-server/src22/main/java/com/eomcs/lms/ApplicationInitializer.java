@@ -43,6 +43,7 @@ public class ApplicationInitializer implements ApplicationContextListener {
       ApplicationContext iocContainer) {
     
     // RequestMappingHandler 정보를 관리할 객체 생성
+
     RequestMappingHandlerMapping handlerMapping = new RequestMappingHandlerMapping();
     
     // 빈 컨테이너에서 객체를 모두 꺼낸다. 

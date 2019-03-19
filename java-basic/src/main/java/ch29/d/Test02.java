@@ -18,7 +18,6 @@ public class Test02 {
     Car c2 = (Car) iocContainer.getBean("c2");
     Car c3 = (Car) iocContainer.getBean("c3");
     
-    System.out.println(bb1);
     System.out.println(c1);
     System.out.println(c2);
     System.out.println(c3);
@@ -29,6 +28,7 @@ public class Test02 {
     System.out.println(bb1 == c2.getBlackBox());
     System.out.println(bb1 == c3.getBlackBox());
     
+    //System.out.println(iocContainer.getBean("c4"));
   }
 }
 
