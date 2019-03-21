@@ -24,14 +24,12 @@ public class MyAutowiredAnnotationBeanPostProcessor implements BeanPostProcessor
   // 파라미터 값이 준비되지 않아서 호출이 연기된 @Autowired 메서드를 기록한 맵
   HashMap<Class<?>, List<AutowiredMethod>> autowiredMethodMap = new HashMap<>();
   
-  public MyAutowiredAnnotationBeanPostProcessor() {
-    System.out.println("MyAutowiredAnnotationBeanPostProcessor()");
-  }
   
   // 객체에 대해 모든 초기화가 끝난 후에 @Autowired 애노테이션을 처리하자!
   // 따라서 다음 메서드만 오버라이딩 한다.
-  @Override                                             
+  @Override
   public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+    
     // 생성된 객체를 기록한다.
     // => 나중에 의존 객체를 주입할 때 사용할 것이다.
     beans.put(bean.getClass(), bean);
@@ -54,7 +52,7 @@ public class MyAutowiredAnnotationBeanPostProcessor implements BeanPostProcessor
         continue;
         
       // 애노테이션이 있다면 이 셋터 메서드가 어떤 타입의 값을 원하는 지 알아낸다.
-      Class<?> paramType = m.getParameters()[0].getType(); //!!!!!!!!!!!!!!!!!
+      Class<?> paramType = m.getParameters()[0].getType();
       
       // 세터가 원하는 파라미터 값이 있는지 확인한다.
       if (isRegistered(paramType)) {
@@ -71,9 +69,8 @@ public class MyAutowiredAnnotationBeanPostProcessor implements BeanPostProcessor
         addAutowiredMethod(paramType, new AutowiredMethod(bean, m));
       }
     }
- 
     return bean;
-  } // postProcessAfterInitialization
+  }
   
   private boolean isRegistered(Class<?> type) {
     return beans.get(type) != null ? true : false;
@@ -94,7 +91,7 @@ public class MyAutowiredAnnotationBeanPostProcessor implements BeanPostProcessor
     
     // 지정된 파라미터 타입의 값을 원하는 세터를 기존 목록에 추가한다. 
     methods.add(autowiredMethod);
-  } // addAutowiredMethod
+  }
   
   private void callAutowiredMethod(Object paramValue) {
     // 이 타입의 빈을 원하는 세터 목록을 꺼낸다.
@@ -110,7 +107,7 @@ public class MyAutowiredAnnotationBeanPostProcessor implements BeanPostProcessor
         e.printStackTrace();
       }
     }
-  } // callAutowiredMethod
+  }
   
   
   class AutowiredMethod {
@@ -121,8 +118,8 @@ public class MyAutowiredAnnotationBeanPostProcessor implements BeanPostProcessor
       this.object = object;
       this.method = method;
     }
-  } //  Class : AutowiredMethod
-} // Class : MyAutowiredAnnotationBeanPostProcessor
+  }
+}
 
 
 

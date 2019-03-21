@@ -1,88 +1,54 @@
-// 21단계: 자바 설정 방식을 이용하여 IoC 컨테이너를 설정하기
-// => IoC 컨테이너에게 필요한 것들을 자바 코드로 설정한다. 
+// 25단계: business layer 추가 
+// => 커맨드 객체에서 비즈니스 로직을 분리하여 별도의 클래스로 정의한다.
+// => 이런 구조로 바꾸면 비즈니스 로직의 재사용성을 높일 수 있다.
 // 
-// 작업1 - 팩토리 메서드를 통해 객체 생성하기 
-// 1) AppConfig 정의
-//    => IoC 컨테이너가 보관할 객체를 생성하는 메서드 정의
-//    => IoC 컨테이너가 자동으로 생성하지 않는 객체를 메서드에서 리턴한다.
-// 2) Bean 애노테이션 정의 
-//    => IoC 컨테이너가 보관해야 하는 객체를 만들어 주는 메서드를 표시할 때 사용한다.
-//    => IoC 컨테이너는 이 애노테이션이 붙은 메서드를 호출하여 그 리턴 값을 보관할 것이다.
-// 3) AppConfig 변경
-//    => 객체를 생성하여 리턴하는 메서드에 Bean 애노테이션을 붙인다.
-// 4) ApplicationContext 변경
-//    => 생성자의 파라미터로 받은 클래스에 대해 설정 작업을 수행한다.
-// 5) ComponentScan 애노테이션 정의
-//    => IoC 컨테이너가 객체를 자동 생성할 때 뒤질 패키지 이름을 설정한다.
-// 6) AppConfig 변경
-//    => ComponentScan 애노테이션을 추가한다.
-// 7) ApplicationContext 변경
-//    => 생성자에서 ComponentScan 애노테이션을 처리한다.
+// 작업
+// 1) BoardCommand 에서 비즈니스 로직 분리
+//    => BoardService 인터페이스 생성 
+//    => BoardServiceImpl 구현체 생성
+// 2) PhotoBoardCommand 에서 비즈니스 로직 분리
+//    => PhotoBoardService 인터페이스 생성
+//    => PhotoBoardServiceImpl 구현체 생성
 //
+// 
 package com.eomcs.lms;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashMap;
-import com.eomcs.lms.context.ApplicationContext;
-import com.eomcs.lms.context.ApplicationContextListener;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.eomcs.lms.context.RequestMappingHandlerMapping;
 import com.eomcs.lms.context.RequestMappingHandlerMapping.RequestMappingHandler;
 import com.eomcs.lms.handler.Response;
 
 public class ServerApp {
 
-  // ApplicationContextListener(옵저버) 목록을 보관할 객체
-  ArrayList<ApplicationContextListener> listeners = new ArrayList<>();
-
-  // 공용 객체를 보관하는 저장소
-  HashMap<String,Object> context = new HashMap<>();
-
   // Command 객체와 그와 관련된 객체를 보관하고 있는 빈 컨테이너
-  ApplicationContext beanContainer;
+  ApplicationContext iocContainer;
   
   // 클라이언트 요청을 처리할 메서드 정보가 들어 있는 객체
   RequestMappingHandlerMapping handlerMapping;
   
-  public void addApplicationContextListener(ApplicationContextListener listener) {
-    listeners.add(listener);
-  }
-
   public void service() throws Exception {
 
     try (ServerSocket ss = new ServerSocket(8888)) {
-      
 
-      // 애플리케이션을 시작할 때, 등록된 리스너에게 알려준다.
-      for (ApplicationContextListener listener : listeners) {
-        listener.contextInitialized(context);
-      }
-
-      // ApplicationInitializer가 준비한 ApplicationContext를 꺼낸다.
-      beanContainer = (ApplicationContext) context.get("applicationContext");
+      // Spring IoC 컨테이너 준비
+      iocContainer = new AnnotationConfigApplicationContext(AppConfig.class);
       
-      // 빈 컨테이너에서 RequestMappingHandlerMapping 객체를 꺼낸다.
+      // 스프링 IoC 컨테이너에서 RequestMappingHandlerMapping 객체를 꺼낸다.
       // 이 객체에 클라이언트 요청을 처리할 메서드 정보가 들어 있다.
       handlerMapping = 
-          (RequestMappingHandlerMapping) beanContainer.getBean("handlerMapping");
+          (RequestMappingHandlerMapping) iocContainer.getBean(
+              RequestMappingHandlerMapping.class);
       
       System.out.println("서버 실행 중...");
       
       while (true) {
         new RequestHandlerThread(ss.accept()).start();
       } // while
-
-      // 애플리케이션을 종료할 때, 등록된 리스너에게 알려준다.
-      // => 현재 while 문은 종료 조건이 없기 때문에 다음 문장을 실행할 수 없다.
-      //    따라서 주석으로 처리한다.
-      /*
-      for (ApplicationContextListener listener : listeners) {
-        listener.contextDestroyed(context);
-      }
-      */
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -92,9 +58,6 @@ public class ServerApp {
   
   public static void main(String[] args) throws Exception {
     ServerApp app = new ServerApp();
-
-    // App이 실행되거나 종료될 때 보고를 받을 옵저버를 등록한다.
-    app.addApplicationContextListener(new ApplicationInitializer());
 
     // App 을 실행한다.
     app.service();
