@@ -18,12 +18,18 @@ public class BoardCommand {
   public void list(Response response) {
     List<Board> boards = boardService.list();
     
+    response.println("<html><head><title>게시물 목록</title></head>");
+    response.println("<body><h3>게시물 목록<h3>");
+    response.println("<table border='15'>");
+    response.println("<tr> <th>번호</th><th>제목</th><th>등록일</th><th>조회수</th></tr>");
+    
     for (Board board : boards) {
       response.println(
-          String.format("%3d, %-20s, %s, %d", 
+          String.format("<tr><th>%3d</th> <th>%-20s</th> <th>%s</th> <th>%d</th></tr>", 
             board.getNo(), board.getContents(), 
             board.getCreatedDate(), board.getViewCount()));
     }
+    response.println("</table></body></html>");
   }
   
   @RequestMapping("/board/add")
