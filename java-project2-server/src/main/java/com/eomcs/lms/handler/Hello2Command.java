@@ -9,20 +9,21 @@ import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.service.BoardService;
 
 @Component
-public class HelloCommand {
+public class Hello2Command {
 
   BoardService boardService;
-  public HelloCommand(BoardService boardService) {
+
+  public Hello2Command(BoardService boardService) {
     this.boardService = boardService;
   }
 
-  @RequestMapping("/hello")
+  @RequestMapping("/hello2")
   public void list(ServletRequest request, ServletResponse response) throws Exception {
 
     PrintWriter out = response.getWriter();
 
-    out.println("<html><head><title>hello</title></head>");
-    out.println("<body><h1>hello, world!</h1>");
+    out.println("<html><head><title>hello2</title></head>");
+    out.println("<body><h1>hello2, world!</h1>");
     out.println("</table></body></html>");
 
   }

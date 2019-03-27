@@ -86,7 +86,11 @@ public class ServerApp {
         String requestLine = in.readLine();
         logger.debug(requestLine);
         
-
+        while (true) {
+          String str = in.readLine();
+          if (str.length() == 0) // 요청의 끝을 만나면 읽기를 멈춘다. 
+            break;
+        }
         
         // 예) GET /member/list HTTP/1.1
         // 예) GET /member/detail?no=10 HTTP/1.1
