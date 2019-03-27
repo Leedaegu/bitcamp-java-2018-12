@@ -261,7 +261,7 @@ public class PhotoBoardCommand {
   @RequestMapping("/photoboard/form")
   public void form(ServletRequest request, ServletResponse response) throws Exception {
     PrintWriter out = response.getWriter();
-
+    
     out.println("<htm>");
     out.println("<head><title>새 사진</title></head>");
     out.println("<body>");

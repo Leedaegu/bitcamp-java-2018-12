@@ -19,7 +19,7 @@
 //    => ServletRequest와 ServletResponse 클래스를 제거한다.
 // 4) Command 변경
 //    => ServletRequest와 ServletResponse를 
-//       servlet-api에서 제공하는 인터페이스로 변경한다.
+//       servlet-api 에서 제공하는 인터페이스로 바꾼다.
 // 4) 자바 웹 배포 파일을 생성
 //    => '$ gradle build' 실행
 // 5) 웹 배포 파일을 톰캣 서버에 배치한다.
@@ -30,33 +30,33 @@
 //    => 톰캣 서버를 실행하면 .war 파일이 자동으로 풀리고 서버에 설정된다.
 // 6) 웹 애플리케이션 실행하기
 //    => http://localhost:8080/프로젝트명/board/list
-
-// [웹 애플리케이션 배포하기]
+// 
+// [웹 애플리케이션 자동 배포하기]
 // 1) 이클립스에 톰캣 서버 경로를 설정한다.
-//    -window/Preferences 메뉴 클릭
-//    -Server 노드 선택
-//    -Runtime Enviroments 노드 선택
-//    -OS 에 설치한 톰캣 서버의 경로를 등록
+//    - Window/Preference 메뉴 클릭
+//    - Server 노드 선택
+//    - Runtime Environments 노드 선택
+//    - OS 에 설치한 톰캣 서버의 경로를 등록
 // 2) 웹 애플리케이션을 테스트 할 때 사용할 톰캣 배치 폴더 생성
-//    - 'Servers' 뷰 선택
+//    - 'Servers' 뷰 선택 
 //    - New/Server 메뉴 클릭
-//     - 이클립스에 등록된 서버 중에서 테스트 환경을 구축할 서버 선택
-//     - 서버 이름 지정한 후 확인 클릭
-//     - 이클립스에 서버 테스트 환경을 다룰 'Server' 프로젝트가 추가된다.
-//       물론 기존에 있다면 테스트 환경을 위한 설정 파일을 담은 폴더만 추가된다.
-//     - 생성된 배치 폴더의 경로
-//       이클립스워크스페이스폴더/.metadata/.plugins/org.eclipse.wst.server.core/
+//    - 이클립스에 등록된 서버 중에서 테스트 환경을 구축할 서버 선택
+//    - 서버 이름 지정한 후 확인 클릭
+//    - 이클립스에 서버 테스트 환경을 다룰 'Servers' 프로젝트가 추가된다.
+//      물론 기존에 있다면 테스트 환경을 위한 설정 파일을 담은 폴더만 추가된다.
+//    - 생성된 배치 폴더의 경로
+//      이클립스워크스페이스폴더/.metadata/.plugins/org.eclipse.wst.server.core/
 // 3) 웹 애플리케이션을 테스트 용으로 만든 배치 폴더에 배포한다.
 //    - 'gradle build'를 실행할 필요가 없다.
 //    - 'Servers' 뷰 선택
-//     - 테스트 서버에 대해 컨텍스트 메뉴 출력
+//    - 테스트 서버에 대해 컨텍스트 메뉴 출력 
 //    - 'Add and Remove...' 메뉴 선택
-//     - 배포할 웹 프로젝트를 선택하여 추가한다.
-//     - 외부에서 별도로 톰캣 서버를 실행했다면 종료하라!
+//    - 배포할 웹 프로젝트를 선택하여 추가하다.
+//    - 외부에서 별도로 톰캣 서버를 실행했다면 종료하라!
 // 4) 테스트 용으로 설정한 톰캣 서버 실행
-//    -'Servers' 뷰 선택
-//     - 테스트 용으로
-//
+//    - 'Servers' 뷰 선택
+//    - 테스트 서버에 대해 컨텍스트 메뉴 출력
+//    - Start/Stop 실행
 package com.eomcs.lms;
 import java.io.IOException;
 import java.io.PrintWriter;
