@@ -52,7 +52,6 @@ public class Servlet01 implements Servlet {
     // => 서블릿을 실행할 때 사용할 자원을 이 메서드에서 준비한다.
     // => 파라미터로 받은 ServletConfig 객체는 인스턴스 변수에 보관해 두었다가 필요할 때 사용한다.
     this.config = config;
-    System.out.println("config = " + config.getClass());
     System.out.println("Servlet01.init(ServletConfig)");
   }
   

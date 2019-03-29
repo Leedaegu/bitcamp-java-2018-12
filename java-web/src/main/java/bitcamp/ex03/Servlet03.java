@@ -11,23 +11,26 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/ex03/s3")
 public class Servlet03 extends GenericServlet {
-
+  
   private static final long serialVersionUID = 1L;
 
   @Override
   public void service(ServletRequest req, ServletResponse res)
       throws ServletException, IOException {
- 
+    
+    // HTML 출력할 때 MIME 타입에 HTML을 지정하지 않으면 
+    // 일반 텍스트 그래도 출력한다.
     res.setContentType("text/html;charset=UTF-8"); // UTF-16 ==> UTF-8
     PrintWriter out = res.getWriter();
     
-    out.println("<!DOCTYPE html>"); // 지정하지않아도 브라우저가 알아서 처리한다.
+    out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head><title>servlet03</title></head>");
-    out.println("<body><h1>안녕하세요!</h1></body>");
+    out.println("<body><h1>안녕하세요</h1></body>");
     out.println("</html>");
   }
 }
+
 
 
 
