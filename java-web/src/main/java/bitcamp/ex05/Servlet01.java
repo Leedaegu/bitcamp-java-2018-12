@@ -20,8 +20,6 @@ public class Servlet01 extends GenericServlet {
   public void service(ServletRequest req, ServletResponse res)
       throws ServletException, IOException {
     
-    
-    
     // 테스트
     // - http://localhost:8080/java-web/ex05/test01.html 실행
     //
@@ -40,7 +38,7 @@ public class Servlet01 extends GenericServlet {
     
     res.setContentType("text/plain;charset=UTF-8");
     PrintWriter out = res.getWriter();
-
+    
     // HttpServletRequest에는 HTTP 프로토콜의 요청 방식을 리턴하는 메서드가 있다.
     // => HttpServletRequest.getMethod()
     //

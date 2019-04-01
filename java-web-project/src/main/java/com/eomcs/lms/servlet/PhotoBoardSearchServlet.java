@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.eomcs.lms.initServlet;
+import com.eomcs.lms.InitServlet;
 import com.eomcs.lms.domain.PhotoBoard;
 import com.eomcs.lms.service.PhotoBoardService;
 
@@ -15,13 +15,14 @@ import com.eomcs.lms.service.PhotoBoardService;
 @WebServlet("/photoboard/search")
 public class PhotoBoardSearchServlet extends HttpServlet {
 
-
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+  protected void doGet(
+      HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
 
     request.setCharacterEncoding("UTF-8");
-    PhotoBoardService photoBoardService = initServlet.iocContainer.getBean(PhotoBoardService.class);
+    PhotoBoardService photoBoardService = 
+        InitServlet.iocContainer.getBean(PhotoBoardService.class);
 
     int lessonNo = 0;
     try {
@@ -61,5 +62,4 @@ public class PhotoBoardSearchServlet extends HttpServlet {
     out.println("</body>");
     out.println("</html>");
   }
-
 }

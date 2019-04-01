@@ -1,5 +1,5 @@
-// 서블릿 들이 사용할 객체를 준비하는 서블릿
-// => 서블릿이 작업을 수행하려면 XxxService 객체가 필요하다.
+// 서블릿들이 사용할 객체를 준비하는 서블릿
+// => 서블릿이 작업을 수행하려면 XxxxService 객체가 필요하다.
 // => 서비스 객체는 Spring IoC 컨테이너에 들어 있다.
 // => 이 클래스에서 바로 그 Spring IoC 컨테이너를 준비한다.
 // 
@@ -17,9 +17,10 @@ import com.eomcs.lms.context.RequestMappingHandlerMapping;
 @WebServlet(
     urlPatterns = "/init",
     loadOnStartup = 1)
-public class initServlet extends HttpServlet {
+public class InitServlet extends HttpServlet {
+   
   // 보통 클래스에서 사용할 로그 출력 객체는 클래스의 스태틱 멤버로 선언한다.
-  final static Logger logger = LogManager.getLogger(initServlet.class);
+  final static Logger logger = LogManager.getLogger(InitServlet.class);
 
   // Command 객체와 그와 관련된 객체를 보관하고 있는 빈 컨테이너
   public static ApplicationContext iocContainer;
@@ -41,7 +42,6 @@ public class initServlet extends HttpServlet {
         (RequestMappingHandlerMapping) iocContainer.getBean(
             RequestMappingHandlerMapping.class);
   }
-
 
   private void printBeans() {
     // 개발하는 동안 참고할 로그는 보통 debug 등급으로 출력한다.
