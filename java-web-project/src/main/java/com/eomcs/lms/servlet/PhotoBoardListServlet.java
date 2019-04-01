@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.eomcs.lms.ServerApp;
+import com.eomcs.lms.initServlet;
 import com.eomcs.lms.domain.PhotoBoard;
 import com.eomcs.lms.service.PhotoBoardService;
 
@@ -19,7 +19,7 @@ public class PhotoBoardListServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    PhotoBoardService photoBoardService = ServerApp.iocContainer.getBean(PhotoBoardService.class);
+    PhotoBoardService photoBoardService = initServlet.iocContainer.getBean(PhotoBoardService.class);
     List<PhotoBoard> boards = photoBoardService.list(0, null);
 
     response.setContentType("text/html;charset=UTF-8");
@@ -44,7 +44,7 @@ public class PhotoBoardListServlet extends HttpServlet {
     out.println("</table>");
 
     out.println("<form action='search'>");
-    out.println("수업번호: <input type='text' name='lessonNo'> ");
+    out.println("수업번호: <input type='nunber' name='lessonNo'> ");
     out.println("검색어: <input type='text' name='keyword'> ");
     out.println("<button type='submit'>검색</button>");
     out.println("</form>");

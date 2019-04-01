@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.eomcs.lms.ServerApp;
+import com.eomcs.lms.initServlet;
 import com.eomcs.lms.domain.PhotoBoard;
 import com.eomcs.lms.service.PhotoBoardService;
 
@@ -21,7 +21,7 @@ public class PhotoBoardSearchServlet extends HttpServlet {
       throws ServletException, IOException {
 
     request.setCharacterEncoding("UTF-8");
-    PhotoBoardService photoBoardService = ServerApp.iocContainer.getBean(PhotoBoardService.class);
+    PhotoBoardService photoBoardService = initServlet.iocContainer.getBean(PhotoBoardService.class);
 
     int lessonNo = 0;
     try {

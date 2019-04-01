@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
-import com.eomcs.lms.ServerApp;
+import com.eomcs.lms.initServlet;
 import com.eomcs.lms.context.RequestMapping;
 import com.eomcs.lms.domain.PhotoBoard;
 import com.eomcs.lms.domain.PhotoFile;
@@ -26,7 +26,7 @@ public class PhotoBoardUpdateServlet extends HttpServlet {
       throws ServletException, IOException {
 
     request.setCharacterEncoding("UTF-8");
-    PhotoBoardService photoBoardService = ServerApp.iocContainer.getBean(PhotoBoardService.class);
+    PhotoBoardService photoBoardService = initServlet.iocContainer.getBean(PhotoBoardService.class);
 
     PhotoBoard board = new PhotoBoard();
     board.setNo(Integer.parseInt(request.getParameter("no")));

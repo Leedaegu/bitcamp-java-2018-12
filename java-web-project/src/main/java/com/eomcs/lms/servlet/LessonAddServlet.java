@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.eomcs.lms.ServerApp;
+import com.eomcs.lms.initServlet;
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.lms.service.LessonService;
 
@@ -69,7 +69,7 @@ public class LessonAddServlet extends HttpServlet {
       throws ServletException, IOException {
 
     request.setCharacterEncoding("UTF-8");
-    LessonService lessonService = ServerApp.iocContainer.getBean(LessonService.class);
+    LessonService lessonService = initServlet.iocContainer.getBean(LessonService.class);
 
     Lesson lesson = new Lesson();
     lesson.setTitle(request.getParameter("title"));

@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.eomcs.lms.ServerApp;
+import com.eomcs.lms.initServlet;
 import com.eomcs.lms.domain.Member;
 import com.eomcs.lms.service.MemberService;
 
@@ -19,7 +19,7 @@ public class MemberSearchServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    MemberService memberService = ServerApp.iocContainer.getBean(MemberService.class);
+    MemberService memberService = initServlet.iocContainer.getBean(MemberService.class);
 
 
     String keyword = request.getParameter("keyword");

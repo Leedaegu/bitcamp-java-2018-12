@@ -6,12 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.eomcs.lms.ServerApp;
+import com.eomcs.lms.initServlet;
 import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.service.BoardService;
 
 @SuppressWarnings("serial")
-@WebServlet("/board/update")
+@WebServlet("/board/update") // 맨앞 /는 현제 웹애플리케이션 이라는 뜻
 public class BoardUpdateServlet extends HttpServlet {
 
   @Override
@@ -19,7 +19,7 @@ public class BoardUpdateServlet extends HttpServlet {
       throws ServletException, IOException {
 
     request.setCharacterEncoding("UTF-8");
-    BoardService boardService = ServerApp.iocContainer.getBean(BoardService.class);
+    BoardService boardService = initServlet.iocContainer.getBean(BoardService.class);
 
     Board board = new Board();
     board.setNo(Integer.parseInt(request.getParameter("no")));
