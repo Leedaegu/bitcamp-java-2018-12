@@ -35,6 +35,12 @@ create table lms_member (
   photo varchar(255) comment '사진'
 ) comment '회원';
 
+-- 이메일컬럼 유니크키로 변경
+create unique index UIX_lms_member_email
+  on lms_member ( -- 회원
+    email ASC     -- 이메일
+  );
+
 -- 게시물 테이블 생성
 create table lms_board (
   board_id int not null auto_increment primary key comment '게시물 식별 번호',
