@@ -1,6 +1,5 @@
 package com.eomcs.lms.servlet;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +24,6 @@ public class MemberListServlet extends HttpServlet {
     request.setAttribute("list", members);
 
     response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
     
     request.getRequestDispatcher("list.jsp").include(request, response);
    
