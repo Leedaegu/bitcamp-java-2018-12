@@ -1,6 +1,6 @@
 package com.eomcs.lms.servlet;
 import java.io.IOException;
-import javax.servlet.ServletContext;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,12 +18,9 @@ public class BoardUpdateServlet extends HttpServlet {
   protected void doPost(
       HttpServletRequest request, 
       HttpServletResponse response)
-      throws ServletException, IOException {
-    
-    ServletContext sc = this.getServletContext();
-    ApplicationContext iocContainer = 
-        (ApplicationContext) sc.getAttribute("iocContainer");
-    BoardService boardService = iocContainer.getBean(BoardService.class);
+          throws ServletException, IOException {
+    // 
+    BoardService boardService = ((ApplicationContext) this.getServletContext().getAttribute("iocContainer")).getBean(BoardService.class);
 
     Board board = new Board();
     board.setNo(Integer.parseInt(request.getParameter("no")));
@@ -33,22 +30,11 @@ public class BoardUpdateServlet extends HttpServlet {
       response.sendRedirect("list");
       return;
     }
+
+    // 오류 내용을 출력하는 JSP로 포워딩 한다
+    request.setAttribute("error.title", "게시물 변경");
+    request.setAttribute("error.content", "해당 번호의 게시물이 없습니다.");
     
-    // 오류 내용을 출력하는 JSP로 포워딩한다.
-    request.setAttribute("error.title", "게시물 변경"); 
-    request.setAttribute("error.content", "해당 번호의 게시물이 없습니다."); 
-
     request.getRequestDispatcher("/error.jsp").forward(request, response);
-  }
- 
-}
-
-
-
-
-
-
-
-
-
-
+  } // doPost
+} // end of class
