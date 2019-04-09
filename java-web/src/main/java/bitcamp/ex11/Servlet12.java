@@ -13,9 +13,10 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/ex11/s12")
 @SuppressWarnings("serial")
 public class Servlet12 extends HttpServlet {
-
+  
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(
+      HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     
     // 세션을 준비한다.
@@ -28,13 +29,11 @@ public class Servlet12 extends HttpServlet {
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>페이지2</title></head><body>");
     out.println("<form action='s13' method='post'>");
-    out.println("나이: <input type='number' name='age'><br>");
+    out.println("나이: <input type='text' name='age'><br>");
     out.println("<button>다음</button>");
     out.println("</form>");
     out.println("</body></html>");
-    
-    
-    
   }
-
 }
+
+

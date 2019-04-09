@@ -1,4 +1,4 @@
-// 세션(session)의 활용 - 페이지1
+// 세션(session)의 활용
 package bitcamp.ex11;
 
 import java.io.IOException;
@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ex11/s11")
 @SuppressWarnings("serial")
 public class Servlet11 extends HttpServlet {
-
+  
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(
+      HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     
     response.setContentType("text/html;charset=UTF-8");
@@ -25,9 +26,7 @@ public class Servlet11 extends HttpServlet {
     out.println("<button>다음</button>");
     out.println("</form>");
     out.println("</body></html>");
-    
-    
-    
   }
-
 }
+
+

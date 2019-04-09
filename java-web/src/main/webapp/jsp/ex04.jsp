@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%
 String[] names = {"홍길동", "임꺽정", "유관순"};
 %>
@@ -13,10 +13,11 @@ String[] names = {"홍길동", "임꺽정", "유관순"};
 <h1>스크립트릿(scriptlet) 응용</h1>
 <ul>
 <%
-for (String name : names){
+for (String name : names) {
   out.println("<li>" + name + "</li>");
 }
 %>
 </ul>
 </body>
 </html>
+

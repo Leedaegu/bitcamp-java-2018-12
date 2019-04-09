@@ -13,9 +13,10 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/ex11/s31")
 @SuppressWarnings("serial")
 public class Servlet31 extends HttpServlet {
-
+  
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(
+      HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     
     HttpSession session = request.getSession();
@@ -24,11 +25,7 @@ public class Servlet31 extends HttpServlet {
     response.setContentType("text/plain;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("/ex11/s31 실행함!");
-    
-    
   }
 }
-
-
 
 
