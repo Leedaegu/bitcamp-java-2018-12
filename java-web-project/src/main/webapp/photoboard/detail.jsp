@@ -84,7 +84,6 @@
       <a href='list'>목록</a>
       <a href='delete?no=${board.no}'>삭제</a>
       <button type='submit'>변경</button>
-      <a href='../'>메인화면</a>
     <p>
   </form>
 </c:otherwise>

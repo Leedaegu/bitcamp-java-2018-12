@@ -35,6 +35,7 @@
     수업번호: <input type='text' name='lessonNo'> 검색어: 
     <input type='text' name='keyword'>
     <button type='submit'>검색</button>
+    
   </form>
 
 </body>
