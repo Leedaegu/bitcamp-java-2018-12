@@ -26,6 +26,7 @@ public class MyAdvice {
   // => 이 메서드는 pointcut을 지정하는 용도로만 사용한다.
   @Pointcut("execution(* ch30.f.X.*(..))")
   public void calculatorOperation() {}
+  
   /*
    <aop:before 
      pointcut="execution(* ch30.f.X.*(..)) and args(p2, p3, p1)" 

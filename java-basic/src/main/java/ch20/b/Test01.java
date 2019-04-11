@@ -1,10 +1,10 @@
-// Stack 클래스 사용법
+// Stack 클래스 사용법 
 package ch20.b;
 
 import java.util.Stack;
 
 public class Test01 {
-  
+
   public static void main(String[] args) {
     Stack<String> stack = new Stack<>();
     
@@ -18,10 +18,10 @@ public class Test01 {
     System.out.println(stack.pop());
     System.out.println(stack.pop());
     System.out.println(stack.pop());
-
-    // 값이 없는데 꺼내려 하면 EmptyStackException 예외가 발생한다.
-    // 예외가 발생한다 => 즉시 JVM을 멈춘다.
-    System.out.println(stack.pop());
     
+    // 값이 없는데 꺼내려 하면 EmptyStackException 예외가 발생한다.
+    System.out.println(stack.pop());
   }
+
 }
+

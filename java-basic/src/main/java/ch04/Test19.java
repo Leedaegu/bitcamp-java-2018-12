@@ -54,8 +54,8 @@ public class Test19 {
     System.out.printf("SQL       : %b\n", (d2 & 0x0400) == 0x0400);
     System.out.printf("R         : %b\n", (d2 & 0x0800) == 0x0800);
     
-    System.out.println("-----------------------------------------");
-    // 값이 같지않으면 어차피 결과는 0이다.
+    System.out.println("------------------------------");
+    // 값이 같지 않으면 어차피 결과는 0이다.
     // 그래서 다음과 같이 검사해도 된다.
     System.out.printf("Java      : %b\n", (d2 & 0x0001) != 0);
     System.out.printf("C         : %b\n", (d2 & 0x0002) != 0);
@@ -69,6 +69,7 @@ public class Test19 {
     System.out.printf("Go        : %b\n", (d2 & 0x0200) != 0);
     System.out.printf("SQL       : %b\n", (d2 & 0x0400) != 0);
     System.out.printf("R         : %b\n", (d2 & 0x0800) != 0);
+    
   }
 }
 

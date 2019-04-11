@@ -4,15 +4,15 @@ package ch21.e;
 import java.util.Scanner;
 
 public class Test02 {
-
+  
   public static void main(String[] args) throws Exception {
     Scanner keyboard = null;
-
-    try{
+    
+    try {
       keyboard = new Scanner(System.in);
-      System.out.print("값1? ");
+      System.out.print("값? ");
       int a = Integer.parseInt(keyboard.nextLine());
-
+      
       int result = sum(a);
       System.out.println(result);
       
@@ -22,15 +22,21 @@ public class Test02 {
       
     } finally {
       keyboard.close();
-      
     }
+    
   }
-
-  static int sum(int value) { // f(n) = n + f(n - 1)
+  
+  static int sum(int value) { // f(n) = n + f(n-1)
     if (value == 1)
       return 1;
-    return value + sum(value -1);
+    return value + sum(value - 1);
   }
-
+  
+ 
 }
+
+
+
+
+
 

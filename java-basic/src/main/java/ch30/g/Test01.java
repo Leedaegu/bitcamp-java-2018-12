@@ -1,4 +1,4 @@
-// AOP 사용 - XML 설정 대신에 애노테이션 사용하기
+// AOP 사용 - Java config로 AOP 설정하기
 package ch30.g;
 
 import org.springframework.context.ApplicationContext;
@@ -6,7 +6,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Test01 {
   public static void main(String[] args) {
-
     ApplicationContext iocContainer = 
         new AnnotationConfigApplicationContext(AppConfig.class);
     
