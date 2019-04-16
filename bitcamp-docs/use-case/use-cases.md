@@ -23,12 +23,11 @@
 - 학생으로 등록된 로그인 사용자
 
 ## Use-Cases
-
 <img src="./diagram/usecase-01.jpg" width="400">
 <img src="./diagram/usecase-02.jpg" width="400">
 <img src="./diagram/usecase-03.jpg" width="400">
 
-### 회원가입(비회원)
+### [회원가입](uc001-SignUp.md)(비회원)
 - 비회원이 로그인을 위해 회원에 가입하는 것.
 
 ### 회원탈퇴(회원)
@@ -87,7 +86,7 @@
 ### 강사관리(관리자)
 - 강사를 등록, 조회, 변경, 삭제하는 것
 
-### 매니저관리(관리자)
+### [매니저관리](uc002-ManagerManagement.md)(관리자)
 - 매니저를 등록, 조회, 변경, 삭제하는 것
 
 ### 교실관리(관리자)

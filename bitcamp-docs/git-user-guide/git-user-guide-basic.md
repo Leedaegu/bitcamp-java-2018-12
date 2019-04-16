@@ -68,7 +68,7 @@ Git 프로젝트는 다음 세 가지 단계로 관리된다.
 ```
          Working Directory         | Staging Area | .git Directory(Repository)
 [Untracked] [Unmodified] [Modified]|[   Staged   ]|[  Committed  ]    
------------------------------------|--------------|---------------------------
+            -----------------------------------|--------------|---------------------------
     +------------------------------------->>                      : git add
                               +----------->>                      : git add
                                            +------------->>       : git commit
@@ -100,7 +100,7 @@ Git 프로젝트는 다음 세 가지 단계로 관리된다.
   - 특정 저장소에만 적용되는 설정.
   - `git config` 옵션을 지정하지 않으면 이 파일을 읽고 쓸 수 있다.
 
-```
+```                                                                     
 예1) 사용자 이름 설정하기
 $ git config --global user.name "Jinyoung Eom"
 $ git config --global user.email "jinyoung.eom@gmail.com"
@@ -112,7 +112,7 @@ $ git config --global core.editor emacs
 ```
 
 ```
-예3) 설정 확인하기
+예3) 설정 확인하기                       
 $ git config --list
 ```
 
@@ -132,7 +132,7 @@ $ git config --help
 ```
 
 ### git init
-
+                       
 - 존재하는 폴더를 깃 저장소로 만든다.
 - .git 폴더를 생성한다.
   - 깃 저장소 관련 파일을 두는 폴더이다.
@@ -153,7 +153,7 @@ $ git config --help
   - `!`로 시작하는 파일은 무시하지 않는다.
 
 ```
-예1) 주석을 표시하는 방법
+예1) 주석을 표시하는 방법                       
 #이것은 주석입니다. 또는 빈 줄.
 
 예2) bin/ 디렉토리를 통째로 무시하기
@@ -191,7 +191,7 @@ src/**/*.class
 예1) github.com의 저장소를 로컬에 복제하기
 $ git clone https://github.com/eomjinyoung/myProject
 ```
-
+                       
 ```
 예2) github.com의 저장소를 myProject2라는 이름으로 폴더를 만들어 로컬에 복제하기
 $ git clone https://github.com/eomjinyoung/myProject myProject2
@@ -256,7 +256,7 @@ Changes to be committed:
 	modified:   src/main/webapp/test02.html
 	modified:   src/main/webapp/test03.html
 	new file:   src/main/webapp/test05.html
-
+                       
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
