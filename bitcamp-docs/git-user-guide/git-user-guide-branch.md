@@ -20,7 +20,7 @@ Git에서 commit을 수행하면 다음의 절차에 따라 커밋 정보를 저
     - 각 커밋을 식별하기 위한 SHA-1 해시로 생성한 체크섬을 가진다.
     - 이전 커밋을 가리키기 위해 이전 커밋의 체크섬이 들어 있다.
 - 객체들 간의 관계
-  - [커밋 객체]----> [트리 객체]----> [Blob 객체들]     
+  - [커밋 객체]----> [트리 객체]----> [Blob 객체들]
 
 ## 브랜치
 
@@ -250,7 +250,7 @@ $ git log --oneline --all --graph
 예3) master 브랜치에 b1 브랜치 커밋 내용을 합치기
 $ git checkout master     <=== 현재 브랜치가 master가 아니라면 이 명령을 수행한다.
 $ git merge b1
-$ git log --oneline --all --graph
+$  git log --oneline --all --graph
 *   58489d3 (HEAD -> master) v0.8    <=== master 브랜치에 b1 브랜치를 합친 새 커밋이 생성된다.
 |\  
 | * 34fda9c (b1) v0.5
@@ -542,7 +542,7 @@ $ git push    <=== master를 origin/master로 올린다.
 $ git log --oneline --graph --all
 *   f5d2046 (HEAD -> master, origin/master, origin/HEAD) X3
 |\  
-| * 9babde9 Y2
+| * 9babde9 Y2x`
 | * 440c0c1 Y1
 * | 82efd10 X2
 * | 4039833 X1
@@ -592,7 +592,7 @@ $ git checkout --track origin/other
 
 - 트래킹 브랜치의 설정 정보를 조회한다.
 - 출력 결과
-    - ahead n : 로컬 브랜치가 커밋을 n 개 앞서 있다. 즉 로컬 브랜치에 커밋이 2개 더 있다는 의미.
+    - ahead n : 로컬 브랜치가 커밋을 n 개 앞서 있다. 즉 로컬 브랜치에 커밋이 n개 더 있다는 의미.
     - behind n : 원격 브랜치에서 로컬 브랜치로 merge 하지 않은 커밋이 n 개 있다는 의미.
 
 ```
