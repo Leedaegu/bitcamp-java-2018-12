@@ -35,28 +35,27 @@
   <textarea id="ta1" cols="50" rows="10"></textarea>
 
   <script>
-			var b1 = document.getElementById("btn1");
-			var b2 = document.getElementById("btn2");
-			var ta1 = document.getElementById("ta1");
+      var b1 = document.getElementById("btn1");
+      var b2 = document.getElementById("btn2");
+      var ta1 = document.getElementById("ta1");
 
-			b1.onclick = function() {
-				var xhr = new XMLHttpRequest();
-				xhr.open("post", "../../app1/c03_4", false);
-				xhr.setRequestHeader("Content-Type", "text/csv");
-				xhr.send("kim,20");
-				ta1.value = xhr.responseText;
-			};
+      b1.onclick = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("post", "../../app1/c03_4", false);
+        xhr.setRequestHeader("Content-Type", "text/csv");
+        xhr.send("kim,20");
+        ta1.value = xhr.responseText;
+      };
 
-			b2.onclick = function() {
-				var xhr = new XMLHttpRequest();
-				xhr.open("post", "../../app1/c03_4", false);
-				xhr.setRequestHeader("Content-Type", "application/json");
-				xhr.send('{"name":"kim","age":20}');
-				ta1.value = xhr.responseText;
-			};
-			
-		</script>
+      b2.onclick = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("post", "../../app1/c03_4", false);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send('{"name":"kim","age":20}');
+        ta1.value = xhr.responseText;
+      };
+      
+    </script>
 </body>
 </html>
-
 
