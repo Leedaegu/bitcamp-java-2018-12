@@ -7,18 +7,28 @@
   /* position: absolute
     => absolute나 relative, fixed 타입의 조상을 기준으로 자신의 위치를 조정한다.
     => 만약 조상 중에 absolute나 relative가 없다면,
-       html 태그를 기준으로 자신의 위치를 조정한다.
+       document 태그를 기준으로 자신의 위치를 조정한다.
     => absolute 태그는 width, height를 지정하지 않으면 콘텐츠의 크기에 맞춘다.
     => 기준이 되는 태그가 움직이면 자신도 같이 움직인다.
+       기준이 여러개일 겨우 자신의 가장가까운 조상을 기준으로한다.
+       기준의 따라 움직이기때문에 기준의 크기가 바뀌면 따라가며 위치를 조정한다.
   */
+
+  html {
+    border: 10px solid navy;
+    position: relative;
+  }
   body {
-    border: 1px solid black;
+    border: 1px dashed black;
     padding: 10px;
+    /* margin: 0px; */
+    position: relative;
   }
 
   div {
     border: 1px solid black;
     padding: 10px;
+
   }
 
   .c1 {
@@ -27,7 +37,8 @@
     background-color: gray;
   }
 
-  #d1 {background-color: red;}
+  #d1 {background-color: red;
+  }
   #d11 {
     background-color: orange;
     position: relative;
@@ -42,6 +53,7 @@
   }
 
   #d111 {
+   
     position: absolute;
     right: 200px;
     top: 10px;

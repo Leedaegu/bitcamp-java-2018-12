@@ -17,17 +17,20 @@
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
     <property name="typeAliasesPackage" value="com.eomcs.lms.domain" />
-    <property name="mapperLocations" value="classpath*:com/eomcs/lms/mapper/*.xml" />
+    <property name="mapperLocations" 
+              value="classpath*:com/eomcs/lms/mapper/*.xml" />
   </bean>
 
   <!-- DAO 인터페이스의 구현체를 생성할 객체 등록 -->
   <mybatis:scan base-package="com.eomcs.lms.dao"/>
   
-  <!-- mybatis:scan 태그대신에 다음과 같이 직접 객체를 등록해도 된다.
+  <!-- mybatis:scan 태그 대신에 다음과 같이 직접 객체를 등록해도 된다. -->
+  <!--  
   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-    <property name="basePackage" value="org.mybatis.spring.sample.mapper" />
+    <property name="basePackage" value="com.eomcs.lms.dao" />
   </bean>
-   -->
+  -->
+
 </beans>
 
 
