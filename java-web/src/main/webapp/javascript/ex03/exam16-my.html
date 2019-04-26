@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex03</title>
+</head>
+<body>
+  <h1>자바스크립트 글로벌 함수 - setInterval()</h1>
+  <script>
+      "use strict"
+
+      var count = 0;
+      var count2 = 0;
+      function f1() {
+        if (count == 60) {
+          count2++;
+          count = 0;
+        }
+
+        console.log(count2 + "분" + (++count) + "초");
+      }
+
+      // f1() 함수를 2초 마다 호출하라!
+      window.setInterval(f1, 1000);
+    </script>
+
+</body>
+</html>
+
+
+
+
+

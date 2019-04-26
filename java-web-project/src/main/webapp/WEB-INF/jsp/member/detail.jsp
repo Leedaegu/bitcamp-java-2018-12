@@ -22,7 +22,7 @@
         <p>해당하는 회원이 없습니다.</p>
       </c:when>
       <c:otherwise>
-        <form class="was-validated" action='update' method='post' enctype='multipart/form-data'>
+        <form action='update' method='post' enctype='multipart/form-data'>
           <div class="form-group row">
             <label for="no" class="col-sm-2 col-form-label">번호</label>
             <div class="col-sm-10">
@@ -62,10 +62,9 @@
               <br>
             </c:if>
 
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="photoFile" name="photoFile" required>
-              <label class="custom-file-label" for="photoFile">Choose file...</label>
-              <div class="invalid-feedback">Example invalid custom file feedback</div>
+            <div id="bit-upload" class="custom-file">
+              <input type="file" class="custom-file-input" id="photoFile" name="photoFile">
+              <label class="custom-file-label" for="photoFile">사진을 선택하세요...</label>
             </div>
           </div>
           
