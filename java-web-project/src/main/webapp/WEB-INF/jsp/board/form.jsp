@@ -19,7 +19,7 @@
       <div class="form-group row">
         <label for="contents" class="col-sm-2 col-form-label">내용</label>
         <div class="col-sm-8">
-          <textarea class="form-control" id="contents" name='contents' rows='5'>${board.contents}</textarea>
+          <textarea class="form-control" id="contents" name='contents' rows='5'></textarea>
         </div>
       </div>
       <div class="bit-btn" class="form-group row">

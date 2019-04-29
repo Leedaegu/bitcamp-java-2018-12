@@ -23,20 +23,19 @@
       <div class="form-group row">
         <label for="name" class="col-sm-2 col-form-label">이름</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="name" name='name' value='${member.name}'>
+          <input type="text" class="form-control" id="name" name='name'>
         </div>
       </div>
       <div class="form-group row">
         <label for="email" class="col-sm-2 col-form-label">이메일</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="email" name='email' value='${member.email}'>
+          <input type="text" class="form-control" id="email" name='email'>
         </div>
       </div>
       <div class="form-group row">
         <label for="password" class="col-sm-2 col-form-label">비밀번호</label>
         <div class="col-sm-6">
-          <input type="password" class="form-control" id="password" name='password'
-            value='${member.password}'>
+          <input type="password" class="form-control" id="password" name='password'>
         </div>
       </div>
 
@@ -44,13 +43,13 @@
       <div id="bit-upload" class="custom-file">
         <input type="file" class="custom-file-input" id="photoFile" name="photoFile"> <label
           class="custom-file-label" for="photoFile">사진을 선택하세요...</label>
-          <p id="bit-service">사진을 선택하지 않으면 기본사진으로 등록됩니다.</p>
+          <p id="bit-service">사진을 선택하지 않으면 기본사진으로 등록됩니다.</p><br>
       </div>
 
       <div class="form-group row">
         <label for="tel" class="col-sm-2 col-form-label">전화번호</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="tel" name='tel' value='${member.tel}'>
+          <input type="text" class="form-control" id="tel" name='tel'>
         </div>
       </div>
       <div class="bit-btn" class="form-group row">

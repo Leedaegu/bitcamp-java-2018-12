@@ -23,14 +23,14 @@
         <th scope="col">이름</th>
         <th scope="col">이메일</th>
         <th scope="col">전화</th>
-        <th>가입일</th>
+        <th scope="col">가입일</th>
       </tr>
       </thead>
       <tbody>
       <c:forEach items="${list}" var="member">
         <tr>
           <th scope="row">${member.no}</th>
-          <td><a href='detail?no=${member.no}'>${member.name}</a></td>
+          <td><a href='${member.no}'>${member.name}</a></td>
           <td>${member.email}</td>
           <td>${member.tel}</td>
           <td>${member.registeredDate}</td>

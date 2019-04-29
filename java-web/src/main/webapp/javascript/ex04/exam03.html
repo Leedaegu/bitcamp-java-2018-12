@@ -23,7 +23,10 @@ obj2.v4 = () => console.log("v4()....");
 
 // 이렇게 프로퍼티의 값으로 다른 객체의 주소를 저장할 수 있다.
 obj.other = obj2;
+obj.n = null;
 
+
+// object graph navigation language(OGNL) 객체.프로퍼티.프로퍼티
 // 객체의 프로퍼티 값 꺼내기
 console.log(obj.name);
 console.log(obj.other.v1);
