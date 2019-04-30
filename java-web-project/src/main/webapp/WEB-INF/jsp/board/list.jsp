@@ -21,33 +21,57 @@
       <a href='form' class="btn btn-primary btn-sm">새 글</a>
     </p>
     <div class="bit-list">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">번호</th>
-          <th scope="col">제목</th>
-          <th scope="col">등록일</th>
-          <th scope="col">조회수</th>
-        </tr>
-      </thead>
-      <tbody>
-        <c:forEach items="${list}" var="board">
+      <table class="table table-hover">
+        <thead>
           <tr>
-            <th scope="row">${board.no}</th>
-            <td><a href='${board.no}'>${board.contents}</a></td>
-            <td>${board.createdDate}</td>
-            <td>${board.viewCount}</td>
+            <th scope="col">번호</th>
+            <th scope="col">제목</th>
+            <th scope="col">등록일</th>
+            <th scope="col">조회수</th>
           </tr>
-        </c:forEach>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <c:forEach items="${list}" var="board">
+            <tr>
+              <th scope="row">${board.no}</th>
+              <td><a href='${board.no}'>${board.contents}</a></td>
+              <td>${board.createdDate}</td>
+              <td>${board.viewCount}</td>
+            </tr>
+          </c:forEach>
+        </tbody>
+      </table>
     </div>
     <nav aria-label="목록 페이지 이동">
       <ul class="pagination justify-content-center">
         <li class="page-item ${pageNo <=1 ? 'disabled' : ''}"><a class="page-link"
           href="?pageNo=${pageNo - 1}&pageSize=${pageSize}">이전</a></li>
-        <li class="page-item active"><span class="page-link">${pageNo}</span></li>
-        <li class="page-item ${pageNo >=totalPage ? 'disabled' : ''}"><a class="page-link"
+
+        <c:choose>
+          <c:when test="${pageNo == 1}">
+            <li class="page-item active"><span class="page-link">${pageNo}</span></li>
+            <li class="page-item"><a class="page-link"
+              href="?pageNo=${pageNo +1}&pageSize=${pageSize}">${pageNo + 1}</a></li>
+            <li class="page-item"><a class="page-link"
+              href="?pageNo=${pageNo +2}&pageSize=${pageSize}">${pageNo + 2}</a></li>
+          </c:when>
+          <c:when test="${pageNo == totalPage}">
+            <li class="page-item"><a class="page-link"
+              href="?pageNo=${pageNo - 2}&pageSize=${pageSize}">${pageNo - 2}</a></li>
+            <li class="page-item"><a class="page-link"
+              href="?pageNo=${pageNo - 1}&pageSize=${pageSize}">${pageNo - 1}</a></li>
+            <li class="page-item active"><span class="page-link">${pageNo}</span></li>
+          </c:when>
+          <c:otherwise>
+            <li class="page-item"><a class="page-link"
+              href="?pageNo=${pageNo -1}&pageSize=${pageSize}">${pageNo - 1}</a></li>
+            <li class="page-item active"><span class="page-link">${pageNo}</span></li>
+            <li class="page-item"><a class="page-link"
+              href="?pageNo=${pageNo +1}&pageSize=${pageSize}">${pageNo + 1}</a></li>
+          </c:otherwise>
+        </c:choose>
+        
+        <li class="page-item ${pageNo >= totalPage ? 'disabled' : ''}"><a class="page-link"
           href="?pageNo=${pageNo + 1}&pageSize=${pageSize}">다음</a></li>
       </ul>
     </nav>

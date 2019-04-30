@@ -21,7 +21,7 @@
         <div class="col-sm-10">
           <select name='lessonNo' class="form-control">
             <c:forEach items="${lessons}" var="lesson">
-              <option value="${lesson.no}"}>${lesson.title}</option>
+              <option value="${lesson.no}">${lesson.title}</option>
             </c:forEach>
           </select>
         </div>
