@@ -38,7 +38,7 @@ public class WebAppInitializer
   }
   
   @Override
-  protected String[] getServletMappings() {
+  protected String[] getServletMappings() {   
     return new String[] {"/app/*"};
   }
   

@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+body {
+	font-size: small;
+}
+
+img {
+	height: 200px;
+	margin-bottom: 20px;
+}
+
+h1 {
+	/* border: 1px solid red; */
+	 text-align: center; 
+	 margin: 20px 0px;
+	
+}
+
+div.bit-list {
+	min-height: 200px;
+}
+
+div.container {
+	width: 800px;
+}
+
+#bit-login-state {
+	margin: 0px 10px;
+}
+
+.bit-btn {
+	text-align: right;
+}
+
+#bit-upload {
+	margin-bottom: 20px;
+}
+
+#bit-service {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: red; 
+}
+
+#bit-photo {
+	margin-bottom: 20px;
+}
