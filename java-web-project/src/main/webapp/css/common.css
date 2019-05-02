@@ -4,16 +4,14 @@ body {
 	font-size: small;
 }
 
-img {
-	height: 200px;
-	margin-bottom: 20px;
+body>header {
+	/* 헤더가 로딩되면서 아래 메인페이지가 위로당겨지는현상을 막기위해 헤더에 최소크기를 주었다. */
+	min-height: 60px;
 }
 
-h1 {
+container>h1 {
+	height: 30px;
 	/* border: 1px solid red; */
-	 text-align: center; 
-	 margin: 20px 0px;
-	
 }
 
 div.bit-list {
@@ -24,6 +22,9 @@ div.container {
 	width: 800px;
 }
 
+.bit-invisible {
+	display: none;
+}
 #bit-login-state {
 	margin: 0px 10px;
 }
@@ -39,7 +40,7 @@ div.container {
 #bit-service {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	color: red; 
+	color: red;
 }
 
 #bit-photo {

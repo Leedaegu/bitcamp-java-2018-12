@@ -1,0 +1,19 @@
+/* 공통으로 사용하지 않는 css는 common으로 빼지않고 이 페이지의 style태그에 둔다. */
+th:nth-child(1) { /* pseudo selector (th의 1번째 자식일경우)*/
+	width: 50px;
+}
+
+th:nth-child(3) {
+	text-align: center;
+	width: 100px;
+}
+
+th:nth-child(4) {
+	text-align: center;
+	width: 60px;
+}
+
+td:nth-child(4) {
+  text-align: center;
+}
+  

@@ -34,17 +34,17 @@ document.querySelector("#btn1").onclick = () => {
     // 서버에 연결하기 전에 등록해야 한다.
     // 즉 open()을 호출하기 전에 등록해야 한다.
     xhr.onreadystatechange = () => {
-        console.log("현재 요청 상태: ", xhr.readyState)
+        console.log("현재 요청 상태: ", xhr.readyState);
     };
     
     xhr.open("GET", "test3.jsp", true);
     xhr.send();
     console.log("send() 리턴함.");
-
+    
     // 비동기로 요청할 때는 서버에서 응답이 왔을 때 값을 꺼내도록 한다.
     // 서버에서 응답이 왔는지 알아내는 방법은?
-    // => 현재의 요청 상태를 보고받는 것이다.
-    // => 위의 onreadyStatechange() 함수 등록을 참고하라!
+    // => 현재의 요청 상태를 보고 받는 것이다.
+    // => 위의 onreadystatechange() 함수 등록을 참고하라!
 };
 
 </script>

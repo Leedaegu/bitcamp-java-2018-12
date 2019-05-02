@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>ex05</title>
 </head>
-<body> <!-- 부모 노드 -->
-<h1>DOM API - id 값으로 태그 찾기</h1> <!-- 자식 노드 -->
+<body>
+<h1>DOM API - id 값으로 태그 찾기</h1>
 <h1 id="header1" class="g1">제목1</h1>
 <h2 id="header2" class="g1">제목1.1</h2>
 <h2 id="header3" class="g1">제목1.2</h2>
@@ -27,9 +27,8 @@
 //
 // getElementById("태그아이디")
 // => Element 객체 리턴
-// 자바스크립트 객체를통해 특정 엘리먼트 객체를 리턴받으면
-// 그 사용법은 DOM API를 확인해야 한다.
 var e1 = document.getElementById("header4");
+
 console.log(e1.name); // undefined
 console.log(e1.localName); // 태그명
 console.log(e1.constructor.name); // 객체의 생성자 이름
@@ -39,7 +38,6 @@ console.log(e1 instanceof Element); // true
 console.log(e1 instanceof Node); // true
 console.log(e1 instanceof EventTarget); // true
 console.log(e1 instanceof Object); // true
-
 </script>
 </body>
 </html>
@@ -47,4 +45,4 @@ console.log(e1 instanceof Object); // true
 
 
 
-  
+
