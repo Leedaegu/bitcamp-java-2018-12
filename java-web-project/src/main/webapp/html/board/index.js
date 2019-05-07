@@ -7,14 +7,10 @@ currSpan = document.querySelector('#currPage > span');
 
 //JSON 형식의 데이터 목록 가져오기
 function loadList(pn) {
-  var xhr = new XMLHttpRequest()
-  xhr.onreadystatechange = function() {
 
-    if (xhr.readyState != 4 || xhr.status != 200)
-      return;
-
+  $.getJSON('../../app/json/board/list?pageNo=' + pn + '&pageSize=' + pageSize, 
+      function(obj) {
     // 서버에서 받은 JSON 형식의 데이터를 =>JavaScript 객체로 변환
-    var obj = JSON.parse(xhr.responseText);
 
     // 서버에서 받은 데이터 중에서 페이지 번호를 글로벌 변수에 저장한다.
     pageNo = obj.pageNo;
@@ -50,9 +46,8 @@ function loadList(pn) {
 
     // 데이터 로딩이 완료되면 body 태그에 이벤트를 전송한다.
     document.body.dispatchEvent(new Event('loaded-list'));
-  };
-  xhr.open('GET', '../../app/json/board/list?pageNo=' + pn + '&pageSize=' + pageSize, true)
-  xhr.send()
+  });
+
 } // loadList()
 
 document.querySelector('#prevPage > a').onclick = (e) => {
